@@ -88,6 +88,27 @@
             box-shadow: 0 10px 20px rgba(240, 147, 251, 0.4);
         }
         
+        .btn-success {
+            background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+            color: white;
+        }
+        
+        .btn-success:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(16, 185, 129, 0.4);
+        }
+        
+        .user-badge {
+            display: inline-block;
+            padding: 10px 20px;
+            background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+            color: white;
+            border-radius: 25px;
+            font-weight: 600;
+            margin: 15px 0;
+            font-size: 1.1rem;
+        }
+        
         .home-options {
             display: grid;
             grid-template-columns: 1fr 1fr;
@@ -531,6 +552,59 @@
             quitDate: null
         };
 
+        // ===== FONCTIONS DE SAUVEGARDE LOCALE =====
+        function saveData() {
+            const userEmail = state.formData.email || 'guest';
+            const saveKey = `passAntiTabac_${userEmail}`;
+            localStorage.setItem(saveKey, JSON.stringify(state));
+            console.log('✅ Données sauvegardées pour:', userEmail);
+        }
+
+        function loadData() {
+            // Charger automatiquement au démarrage
+            const allKeys = Object.keys(localStorage).filter(k => k.startsWith('passAntiTabac_'));
+            if (allKeys.length > 0) {
+                // Prendre la dernière session sauvegardée
+                const lastKey = allKeys[allKeys.length - 1];
+                const saved = localStorage.getItem(lastKey);
+                if (saved) {
+                    Object.assign(state, JSON.parse(saved));
+                    console.log('✅ Données chargées automatiquement');
+                }
+            }
+        }
+
+        function resetData() {
+            if (confirm('⚠️ Êtes-vous sûr de vouloir réinitialiser toutes vos données ? Cette action est irréversible.')) {
+                const userEmail = state.formData.email;
+                if (userEmail) {
+                    localStorage.removeItem(`passAntiTabac_${userEmail}`);
+                }
+                localStorage.clear(); // Nettoyer tout
+                alert('✅ Données réinitialisées !');
+                location.reload();
+            }
+        }
+
+        function calculateStats() {
+            const quitDate = state.quitDate || state.formData.quitDate;
+            if (!quitDate) {
+                return { daysSinceQuit: 0, cigarettesAvoided: 0, moneySaved: '0' };
+            }
+            
+            const daysSinceQuit = Math.floor((new Date() - new Date(quitDate)) / (1000 * 60 * 60 * 24));
+            const cigarettesPerDay = parseInt(state.formData.cigarettesPerDay) || 0;
+            const cigarettesAvoided = Math.max(0, daysSinceQuit * cigarettesPerDay);
+            const pricePerCigarette = 0.5; // Prix moyen par cigarette
+            const moneySaved = cigarettesAvoided * pricePerCigarette;
+            
+            return {
+                daysSinceQuit: Math.max(0, daysSinceQuit),
+                cigarettesAvoided,
+                moneySaved: moneySaved.toFixed(0)
+            };
+        }
+
         // Données des exercices (identiques à avant)
         const exercises = [
             {
@@ -759,20 +833,47 @@
 
         // Page d'accueil
         function renderHome() {
+            const stats = calculateStats();
+            const hasData = state.formData.firstName && (state.quitDate || state.formData.quitDate);
+            
             return `
                 <div class="header">
                     <h1>🌬️ Pass Anti Tabac</h1>
                     <p>Votre accompagnement personnalisé pour l'arrêt du tabac</p>
                     <p style="font-size: 0.9rem; margin-top: 10px; opacity: 0.8;">Protocole professionnel d'hypnose thérapeutique</p>
+                    ${hasData ? `<div class="user-badge">👋 Bonjour ${state.formData.firstName} !</div>` : ''}
                 </div>
                 
                 <div class="container">
+                    ${hasData ? `
+                        <div class="card" style="margin-bottom: 30px;">
+                            <h2 style="font-family: 'Playfair Display', serif; margin-bottom: 20px; text-align: center; color: #667eea;">📊 Vos Progrès</h2>
+                            <div class="stats-grid">
+                                <div class="stat-card">
+                                    <div class="stat-value">${stats.daysSinceQuit}</div>
+                                    <div class="stat-label">Jours sans cigarette</div>
+                                </div>
+                                <div class="stat-card">
+                                    <div class="stat-value">${stats.cigarettesAvoided}</div>
+                                    <div class="stat-label">Cigarettes évitées</div>
+                                </div>
+                                <div class="stat-card">
+                                    <div class="stat-value">${stats.moneySaved}€</div>
+                                    <div class="stat-label">Économies réalisées</div>
+                                </div>
+                            </div>
+                            <div style="text-align: center; margin-top: 20px;">
+                                <button class="btn btn-success" onclick="goToDashboard()">📈 Voir le tableau de bord complet →</button>
+                            </div>
+                        </div>
+                    ` : ''}
+                    
                     <div class="card">
                         <div class="home-options">
                             <div class="option-card" onclick="startQuestionnaire()">
-                                <h2>📋 Parcours Guidé</h2>
-                                <p>Commencez par remplir le questionnaire détaillé pour recevoir un accompagnement sur mesure basé sur votre profil unique.</p>
-                                <button class="btn btn-primary">Commencer le questionnaire</button>
+                                <h2>📋 ${hasData ? 'Mettre à jour mon profil' : 'Parcours Guidé'}</h2>
+                                <p>${hasData ? 'Modifiez vos informations ou complétez votre questionnaire.' : 'Commencez par remplir le questionnaire détaillé pour recevoir un accompagnement sur mesure basé sur votre profil unique.'}</p>
+                                <button class="btn btn-primary">${hasData ? 'Modifier le questionnaire' : 'Commencer le questionnaire'}</button>
                             </div>
                             
                             <div class="option-card" onclick="goToExercises()">
@@ -786,6 +887,13 @@
                             <h4>💡 À propos de ce programme</h4>
                             <p>Ce programme combine les techniques d'hypnose thérapeutique les plus efficaces pour l'arrêt du tabac. Le questionnaire détaillé permet une personnalisation complète de votre accompagnement.</p>
                         </div>
+                        
+                        ${hasData ? `
+                            <div style="text-align: center; margin-top: 30px; padding-top: 30px; border-top: 2px solid #e2e8f0;">
+                                <p style="color: #64748b; margin-bottom: 15px; font-size: 0.9rem;">Vos données sont sauvegardées localement dans votre navigateur</p>
+                                <button class="btn btn-secondary" onclick="resetData()" style="font-size: 0.9rem; padding: 10px 30px;">🔄 Nouveau parcours (réinitialiser)</button>
+                            </div>
+                        ` : ''}
                     </div>
                 </div>
             `;
@@ -1594,6 +1702,7 @@
 
         function nextStep() {
             saveCurrentStep();
+            saveData(); // Sauvegarder les données
             if (state.currentStep < state.totalSteps) {
                 state.currentStep++;
                 render();
@@ -1603,6 +1712,7 @@
 
         function previousStep() {
             saveCurrentStep();
+            saveData(); // Sauvegarder les données
             if (state.currentStep > 1) {
                 state.currentStep--;
                 render();
@@ -1617,6 +1727,12 @@
 
         function submitQuestionnaire() {
             saveCurrentStep();
+            
+            // SAUVEGARDER LES DONNÉES
+            if (state.formData.quitDate && !state.quitDate) {
+                state.quitDate = state.formData.quitDate;
+            }
+            saveData();
             
             // Créer l'email avec toutes les données
             const emailBody = `
@@ -1743,17 +1859,30 @@ FIN DU QUESTIONNAIRE
 ═══════════════════════════════════════════════════
             `.trim();
             
+            // Créer le lien mailto proprement encodé
+            const subject = `Questionnaire Pass Anti Tabac - ${state.formData.firstName}`;
+            const mailtoLink = `mailto:hypnosejoffrey@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(emailBody)}`;
+            
             // Ouvrir le client email
-            const mailtoLink = `mailto:hypnosejoffrey@gmail.com?subject=Questionnaire Pass Anti Tabac - ${encodeURIComponent(state.formData.firstName)}&body=${encodeURIComponent(emailBody)}`;
             window.location.href = mailtoLink;
             
-            // Définir la date d'arrêt et aller au dashboard
-            if (!state.quitDate) {
-                state.quitDate = new Date();
+            // Définir la date d'arrêt si pas déjà définie
+            if (!state.quitDate && state.formData.quitDate) {
+                state.quitDate = state.formData.quitDate;
+            } else if (!state.quitDate) {
+                state.quitDate = new Date().toISOString();
             }
+            
+            // Sauvegarder une dernière fois
+            saveData();
+            
+            // Afficher message de confirmation
+            alert('✅ Questionnaire terminé !\n\n📧 Un email va s\'ouvrir dans votre client de messagerie.\n\n💾 Vos données ont été sauvegardées localement.');
+            
+            // Aller au dashboard après un court délai
             setTimeout(() => {
                 goToDashboard();
-            }, 1000);
+            }, 2000);
         }
 
         // Ouvrir un exercice dans une modale
@@ -1825,9 +1954,12 @@ FIN DU QUESTIONNAIRE
 
         // Initialisation
         document.addEventListener('DOMContentLoaded', function() {
+            loadData(); // Charger les données sauvegardées
             render();
         });
         
+        // Charger et rendre immédiatement
+        loadData();
         render();
     </script>
 </body>
