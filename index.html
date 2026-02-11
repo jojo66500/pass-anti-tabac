@@ -16,11 +16,17 @@
             box-sizing: border-box;
         }
         
+        html {
+            overflow-x: hidden;
+        }
+        
         body {
             font-family: 'Source Serif Pro', serif;
             background: linear-gradient(135deg, #1e3c72 0%, #2a5298 50%, #7e8ba3 100%);
             min-height: 100vh;
             color: #2c3e50;
+            overflow-x: hidden;
+            width: 100%;
         }
         
         .container {
@@ -184,15 +190,18 @@
         .question-group input[type="text"],
         .question-group input[type="number"],
         .question-group input[type="email"],
+        .question-group input[type="date"],
         .question-group select,
         .question-group textarea {
             width: 100%;
+            max-width: 100%;
             padding: 12px;
             border: 2px solid #e2e8f0;
             border-radius: 10px;
             font-size: 1rem;
             font-family: 'Source Serif Pro', serif;
             transition: border-color 0.3s;
+            box-sizing: border-box;
         }
         
         .question-group input:focus,
@@ -454,6 +463,7 @@
         }
         
         @media (max-width: 768px) {
+            /* Layouts en colonnes sur mobile */
             .home-options,
             .checkbox-grid,
             .stats-grid,
@@ -461,13 +471,126 @@
                 grid-template-columns: 1fr;
             }
             
+            /* Réduire les tailles de police */
             .header h1 {
                 font-size: 2rem;
             }
             
+            .header p {
+                font-size: 1rem;
+            }
+            
+            /* Réduire les paddings */
+            .card {
+                padding: 25px 15px;
+            }
+            
+            .container {
+                padding: 10px;
+            }
+            
+            .option-card {
+                padding: 25px 20px;
+            }
+            
+            /* Boutons en colonne */
             .nav-buttons {
                 flex-direction: column;
                 gap: 15px;
+            }
+            
+            .nav-buttons .btn {
+                width: 100%;
+            }
+            
+            /* Exercise grid en 1 colonne */
+            .exercise-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            /* Stats plus compactes */
+            .stat-card {
+                padding: 20px 15px;
+            }
+            
+            .stat-value {
+                font-size: 2rem;
+            }
+            
+            /* Modal plus petit */
+            .modal-content {
+                margin: 20px;
+                padding: 25px 20px;
+            }
+            
+            /* Scale selector wrap */
+            .scale-selector {
+                flex-wrap: wrap;
+            }
+            
+            .scale-option {
+                min-width: 50px;
+                padding: 12px 8px;
+                font-size: 0.9rem;
+            }
+            
+            /* Checkbox et radio plus espacés */
+            .checkbox-item,
+            .radio-item {
+                padding: 12px;
+                font-size: 0.95rem;
+            }
+            
+            /* Question group */
+            .question-group label {
+                font-size: 1rem;
+            }
+            
+            .question-group input,
+            .question-group select,
+            .question-group textarea {
+                font-size: 16px; /* Évite le zoom automatique sur iOS */
+            }
+            
+            /* Section titles plus petits */
+            .section-title {
+                font-size: 1.2rem;
+            }
+            
+            /* Info box plus compact */
+            .info-box {
+                padding: 15px;
+                font-size: 0.95rem;
+            }
+            
+            /* User badge */
+            .user-badge {
+                font-size: 1rem;
+                padding: 8px 16px;
+            }
+        }
+        
+        /* Très petits écrans (< 480px) */
+        @media (max-width: 480px) {
+            .header h1 {
+                font-size: 1.5rem;
+            }
+            
+            .card {
+                padding: 20px 12px;
+            }
+            
+            .btn {
+                padding: 12px 30px;
+                font-size: 1rem;
+            }
+            
+            .stat-value {
+                font-size: 1.8rem;
+            }
+            
+            .stat-label {
+                font-size: 0.8rem;
             }
         }
         
