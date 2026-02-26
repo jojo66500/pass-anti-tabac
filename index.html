@@ -8,31 +8,25 @@
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Source+Serif+Pro:wght@300;400;600&display=swap" rel="stylesheet">
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        
         html { overflow-x: hidden; }
-        
         body {
             font-family: 'Source Serif Pro', serif;
             background: linear-gradient(135deg, #1e3c72 0%, #2a5298 50%, #7e8ba3 100%);
             min-height: 100vh;
             color: #2c3e50;
         }
-        
         .container { max-width: 900px; margin: 0 auto; padding: 20px; }
-        
         .header {
             text-align: center;
             padding: 40px 20px;
             color: white;
         }
-        
         .header h1 {
             font-family: 'Playfair Display', serif;
             font-size: 3rem;
             margin-bottom: 10px;
             text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
         }
-        
         .card {
             background: white;
             border-radius: 20px;
@@ -40,7 +34,6 @@
             margin: 20px 0;
             box-shadow: 0 10px 40px rgba(0,0,0,0.2);
         }
-        
         .btn {
             display: inline-block;
             padding: 15px 40px;
@@ -53,45 +46,48 @@
             width: 100%;
             margin: 10px 0;
         }
-        
         .btn-primary {
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             color: white;
         }
-        
         .btn-primary:hover {
             transform: translateY(-2px);
             box-shadow: 0 10px 20px rgba(102, 126, 234, 0.4);
         }
-        
         .btn-secondary {
             background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
             color: white;
         }
-        
         .btn-success {
             background: linear-gradient(135deg, #10b981 0%, #059669 100%);
             color: white;
         }
-        
+        .btn-danger {
+            background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%);
+            color: white;
+            font-size: 1.5rem;
+            padding: 20px;
+            animation: pulse 2s infinite;
+        }
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
         .question-card {
             background: #f8f9fa;
             padding: 25px;
             border-radius: 15px;
             margin: 20px 0;
         }
-        
         .question-card h3 {
             color: #667eea;
             margin-bottom: 15px;
         }
-        
         .radio-group {
             display: flex;
             flex-direction: column;
             gap: 10px;
         }
-        
         .radio-option {
             padding: 12px;
             background: white;
@@ -101,22 +97,18 @@
             display: flex;
             align-items: center;
         }
-        
         .radio-option:hover {
             background: #e0e7ff;
         }
-        
         .radio-option input[type="radio"] {
             margin-right: 10px;
         }
-        
         .exercise-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             gap: 20px;
             margin: 20px 0;
         }
-        
         .exercise-card {
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             padding: 25px;
@@ -125,23 +117,19 @@
             cursor: pointer;
             transition: all 0.3s;
         }
-        
         .exercise-card:hover {
             transform: translateY(-5px);
             box-shadow: 0 15px 30px rgba(102, 126, 234, 0.3);
         }
-        
         .exercise-card h3 {
             margin-bottom: 10px;
             font-size: 1.2rem;
         }
-        
         .exercise-duration {
             font-size: 0.9rem;
             opacity: 0.9;
             margin-bottom: 10px;
         }
-        
         .modal {
             display: none;
             position: fixed;
@@ -153,7 +141,6 @@
             z-index: 1000;
             overflow-y: auto;
         }
-        
         .modal-content {
             background: white;
             max-width: 800px;
@@ -162,7 +149,6 @@
             border-radius: 20px;
             position: relative;
         }
-        
         .close-modal {
             position: absolute;
             top: 20px;
@@ -171,20 +157,17 @@
             cursor: pointer;
             color: #666;
         }
-        
         .audio-player {
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             padding: 20px;
             border-radius: 15px;
             margin: 20px 0;
         }
-        
         .audio-player audio {
             width: 100%;
             height: 50px;
             border-radius: 10px;
         }
-        
         .binaural-toggle {
             background: rgba(255,255,255,0.2);
             padding: 10px 20px;
@@ -194,12 +177,10 @@
             align-items: center;
             justify-content: space-between;
         }
-        
         .binaural-toggle label {
             color: white;
             cursor: pointer;
         }
-        
         .results-card {
             background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
             color: white;
@@ -207,19 +188,16 @@
             border-radius: 15px;
             margin: 20px 0;
         }
-        
         .stat-box {
             background: rgba(255,255,255,0.2);
             padding: 20px;
             border-radius: 10px;
             margin: 10px 0;
         }
-        
         .stat-box h4 {
             font-size: 2rem;
             margin-bottom: 5px;
         }
-        
         .warning-text {
             background: rgba(255,255,255,0.15);
             padding: 15px;
@@ -228,7 +206,6 @@
             font-size: 0.9rem;
             font-style: italic;
         }
-        
         .progress-bar {
             width: 100%;
             height: 8px;
@@ -237,17 +214,154 @@
             overflow: hidden;
             margin: 10px 0;
         }
-        
         .progress-fill {
             height: 100%;
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             transition: width 0.3s;
         }
-        
+
+        /* NOUVEAU : Styles pour le tracking */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 15px;
+            margin: 20px 0;
+        }
+        .stat-card {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 20px;
+            border-radius: 15px;
+            text-align: center;
+        }
+        .stat-card h3 {
+            font-size: 2.5rem;
+            margin-bottom: 5px;
+        }
+        .stat-card p {
+            font-size: 0.9rem;
+            opacity: 0.9;
+        }
+        .tracking-input {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 15px;
+            margin: 20px 0;
+        }
+        .tracking-input input[type="number"] {
+            width: 100%;
+            padding: 15px;
+            border: 2px solid #e0e0e0;
+            border-radius: 10px;
+            font-size: 1.1rem;
+            margin: 10px 0;
+        }
+        .chart-container {
+            background: white;
+            padding: 20px;
+            border-radius: 15px;
+            margin: 20px 0;
+            height: 300px;
+            position: relative;
+        }
+        canvas {
+            max-width: 100%;
+            max-height: 100%;
+        }
+
+        /* NOUVEAU : Bouton SOS flottant */
+        .sos-button {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%);
+            color: white;
+            border: none;
+            font-size: 2rem;
+            cursor: pointer;
+            box-shadow: 0 10px 30px rgba(239, 68, 68, 0.5);
+            z-index: 999;
+            animation: pulse 2s infinite;
+            display: none;
+        }
+        .sos-button:hover {
+            transform: scale(1.1);
+        }
+
+        /* NOUVEAU : Notifications */
+        .notification {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: white;
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            z-index: 1001;
+            max-width: 350px;
+            animation: slideIn 0.5s;
+            display: none;
+        }
+        @keyframes slideIn {
+            from {
+                transform: translateX(400px);
+                opacity: 0;
+            }
+            to {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+        .notification.success {
+            border-left: 5px solid #10b981;
+        }
+        .notification.info {
+            border-left: 5px solid #667eea;
+        }
+        .notification h4 {
+            margin-bottom: 10px;
+            color: #667eea;
+        }
+
+        /* Badges */
+        .badges-container {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+            margin: 20px 0;
+        }
+        .badge {
+            background: linear-gradient(135deg, #fbbf24 0%, #f59e0b 100%);
+            color: white;
+            padding: 15px 20px;
+            border-radius: 15px;
+            text-align: center;
+            min-width: 120px;
+        }
+        .badge.locked {
+            background: #e5e7eb;
+            color: #9ca3af;
+        }
+        .badge h4 {
+            font-size: 1.5rem;
+            margin-bottom: 5px;
+        }
+
         @media (max-width: 768px) {
             .header h1 { font-size: 2rem; }
             .card { padding: 25px; }
             .exercise-grid { grid-template-columns: 1fr; }
+            .stats-grid { grid-template-columns: repeat(2, 1fr); }
+            .sos-button {
+                width: 60px;
+                height: 60px;
+                font-size: 1.5rem;
+                bottom: 20px;
+                right: 20px;
+            }
         }
     </style>
 </head>
@@ -256,6 +370,17 @@
         <div class="header">
             <h1>🌟 Pass Anti Tabac</h1>
             <p>Protocole d'hypnose thérapeutique professionnel</p>
+        </div>
+
+        <!-- Bouton SOS flottant -->
+        <button class="sos-button" id="sos-btn" onclick="openSOS()">
+            🆘
+        </button>
+
+        <!-- Notification -->
+        <div class="notification" id="notification">
+            <h4 id="notif-title">Bravo !</h4>
+            <p id="notif-message">Message ici</p>
         </div>
 
         <!-- Écran d'accueil -->
@@ -269,7 +394,7 @@
             </button>
         </div>
 
-        <!-- Questionnaire Profil Fumeur -->
+        <!-- Questionnaire (inchangé) -->
         <div id="questionnaire-screen" style="display: none;">
             <div class="card">
                 <h2 style="text-align: center; margin-bottom: 20px;">Quel est votre profil de fumeur ?</h2>
@@ -295,7 +420,7 @@
             </div>
         </div>
 
-        <!-- Résultats Profil -->
+        <!-- Résultats (inchangé) -->
         <div id="results-screen" style="display: none;">
             <div class="card">
                 <h2 style="text-align: center; margin-bottom: 20px;">Votre Profil de Fumeur</h2>
@@ -319,8 +444,69 @@
             </div>
         </div>
 
-        <!-- Dashboard Exercices -->
+        <!-- NOUVEAU : Dashboard avec Tracking -->
         <div id="dashboard-screen" style="display: none;">
+            <!-- Statistiques en temps réel -->
+            <div class="card">
+                <h2 style="text-align: center; margin-bottom: 20px;">📊 Vos progrès</h2>
+                
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <h3 id="days-count">0</h3>
+                        <p>Jours sans tabac</p>
+                    </div>
+                    <div class="stat-card">
+                        <h3 id="today-cigs">0</h3>
+                        <p>Aujourd'hui</p>
+                    </div>
+                    <div class="stat-card">
+                        <h3 id="money-saved">0€</h3>
+                        <p>Économisé</p>
+                    </div>
+                    <div class="stat-card">
+                        <h3 id="total-avoided">0</h3>
+                        <p>Cigarettes évitées</p>
+                    </div>
+                </div>
+
+                <!-- Input tracking quotidien -->
+                <div class="tracking-input">
+                    <h3 style="margin-bottom: 15px;">Aujourd'hui, combien avez-vous fumé ?</h3>
+                    <input type="number" id="daily-cigs" min="0" placeholder="Nombre de cigarettes" 
+                           onchange="updateDailyTracking()">
+                    <p style="margin-top: 10px; color: #666; font-size: 0.9rem;">
+                        💡 Soyez honnête avec vous-même, c'est pour votre bien !
+                    </p>
+                </div>
+
+                <!-- Graphique évolution -->
+                <div class="chart-container">
+                    <canvas id="progressChart"></canvas>
+                </div>
+
+                <!-- Badges débloqués -->
+                <h3 style="margin-top: 30px;">🏆 Vos succès</h3>
+                <div class="badges-container" id="badges-container">
+                    <div class="badge locked">
+                        <h4>🔒</h4>
+                        <p>1 jour</p>
+                    </div>
+                    <div class="badge locked">
+                        <h4>🔒</h4>
+                        <p>3 jours</p>
+                    </div>
+                    <div class="badge locked">
+                        <h4>🔒</h4>
+                        <p>1 semaine</p>
+                    </div>
+                    <div class="badge locked">
+                        <h4>🔒</h4>
+                        <p>1 mois</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Exercices -->
             <div class="card">
                 <h2 style="text-align: center; margin-bottom: 30px;">Vos exercices d'hypnose</h2>
                 
@@ -398,12 +584,44 @@
                 <div id="modal-content"></div>
             </div>
         </div>
+
+        <!-- NOUVEAU : Modal SOS -->
+        <div id="sos-modal" class="modal">
+            <div class="modal-content">
+                <span class="close-modal" onclick="closeSOS()">&times;</span>
+                <h2 style="color: #ef4444; text-align: center;">🆘 Besoin d'aide maintenant ?</h2>
+                <p style="text-align: center; margin: 20px 0;">Choisissez une technique rapide :</p>
+                
+                <button class="btn btn-danger" onclick="playSOSBreathing()">
+                    🫁 Respiration d'urgence (2 min)
+                </button>
+                
+                <button class="btn btn-primary" onclick="openExercise(1)">
+                    ⏰ Retarder de 10 minutes
+                </button>
+                
+                <button class="btn btn-secondary" onclick="openExercise(5)">
+                    🏝️ Retour au lieu sûr (10 min)
+                </button>
+
+                <div style="background: #f8f9fa; padding: 20px; border-radius: 15px; margin-top: 20px;">
+                    <h4>💡 Rappelez-vous :</h4>
+                    <ul style="margin: 15px 0; padding-left: 20px; line-height: 1.8;">
+                        <li>Cette envie va passer (elle dure 3-5 minutes maximum)</li>
+                        <li>Vous êtes plus fort que cette cigarette</li>
+                        <li>Buvez un grand verre d'eau froide</li>
+                        <li>Rappelez-vous le goût dégoûtant (aversion)</li>
+                        <li>Chaque victoire vous rend plus libre !</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
     </div>
 
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script>
         // Wake Lock
         let wakeLock = null;
-
         async function requestWakeLock() {
             try {
                 if ('wakeLock' in navigator) {
@@ -413,21 +631,19 @@
                 console.log('Wake Lock error:', err);
             }
         }
-
         async function releaseWakeLock() {
             if (wakeLock) {
                 await wakeLock.release();
                 wakeLock = null;
             }
         }
-
         document.addEventListener('visibilitychange', async () => {
             if (wakeLock !== null && document.visibilityState === 'visible') {
                 await requestWakeLock();
             }
         });
 
-        // URLs des audios
+        // URLs et durées audios
         const audioUrls = {
             0: 'audios/seance-guidee-complete.mp3',
             1: 'audios/exercice-1-retarder.mp3',
@@ -441,13 +657,269 @@
             9: 'audios/exercice-9-futurisation.mp3'
         };
 
-        // Durées des audios
         const audioDurations = {
             0: "24:22", 1: "2:05", 2: "3:31", 3: "3:04", 4: "1:46",
             5: "10:09", 6: "16:24", 7: "13:49", 8: "13:38", 9: "14:32"
         };
 
-        // Questions du profil fumeur
+        // NOUVEAU : Système de tracking
+        let trackingData = JSON.parse(localStorage.getItem('passAntiTabac_tracking')) || {
+            startDate: new Date().toISOString(),
+            dailyData: {},
+            cigarettePricePerPack: 10,
+            cigarettesPerPack: 20,
+            averagePerDay: 20
+        };
+
+        function initTracking() {
+            const today = new Date().toISOString().split('T')[0];
+            if (!trackingData.dailyData[today]) {
+                trackingData.dailyData[today] = { cigarettes: 0 };
+            }
+            updateStats();
+            updateChart();
+            checkBadges();
+            
+            // Afficher bouton SOS si dans dashboard
+            if (document.getElementById('dashboard-screen').style.display !== 'none') {
+                document.getElementById('sos-btn').style.display = 'block';
+            }
+        }
+
+        function updateDailyTracking() {
+            const today = new Date().toISOString().split('T')[0];
+            const cigs = parseInt(document.getElementById('daily-cigs').value) || 0;
+            
+            trackingData.dailyData[today] = { cigarettes: cigs };
+            localStorage.setItem('passAntiTabac_tracking', JSON.stringify(trackingData));
+            
+            updateStats();
+            updateChart();
+            checkBadges();
+            
+            // Notification encouragement
+            if (cigs === 0) {
+                showNotification('🎉 Incroyable !', 'Journée complète sans cigarette ! Vous êtes un champion !', 'success');
+            } else if (cigs < trackingData.averagePerDay / 2) {
+                showNotification('💪 Bravo !', `Seulement ${cigs} cigarettes ! Vous progressez !`, 'success');
+            }
+        }
+
+        function updateStats() {
+            const today = new Date().toISOString().split('T')[0];
+            const startDate = new Date(trackingData.startDate);
+            const currentDate = new Date();
+            const daysSince = Math.floor((currentDate - startDate) / (1000 * 60 * 60 * 24));
+            
+            // Jours sans tabac (jours à 0 cigarettes)
+            let daysClean = 0;
+            Object.values(trackingData.dailyData).forEach(day => {
+                if (day.cigarettes === 0) daysClean++;
+            });
+            
+            // Cigarettes aujourd'hui
+            const todayCigs = trackingData.dailyData[today]?.cigarettes || 0;
+            document.getElementById('daily-cigs').value = todayCigs || '';
+            
+            // Total évité
+            let totalSmoked = 0;
+            Object.values(trackingData.dailyData).forEach(day => {
+                totalSmoked += day.cigarettes;
+            });
+            const totalAvoided = (daysSince * trackingData.averagePerDay) - totalSmoked;
+            
+            // Argent économisé
+            const moneySaved = (totalAvoided * trackingData.cigarettePricePerPack / trackingData.cigarettesPerPack).toFixed(2);
+            
+            // Mise à jour affichage
+            document.getElementById('days-count').textContent = daysClean;
+            document.getElementById('today-cigs').textContent = todayCigs;
+            document.getElementById('money-saved').textContent = moneySaved + '€';
+            document.getElementById('total-avoided').textContent = totalAvoided > 0 ? totalAvoided : 0;
+        }
+
+        function updateChart() {
+            const ctx = document.getElementById('progressChart');
+            if (!ctx) return;
+            
+            // Préparer données pour graphique (7 derniers jours)
+            const dates = [];
+            const cigarettes = [];
+            const today = new Date();
+            
+            for (let i = 6; i >= 0; i--) {
+                const date = new Date(today);
+                date.setDate(date.getDate() - i);
+                const dateStr = date.toISOString().split('T')[0];
+                const dateLabel = date.toLocaleDateString('fr-FR', { weekday: 'short', day: 'numeric' });
+                
+                dates.push(dateLabel);
+                cigarettes.push(trackingData.dailyData[dateStr]?.cigarettes || 0);
+            }
+            
+            // Détruire ancien graphique si existe
+            if (window.progressChartInstance) {
+                window.progressChartInstance.destroy();
+            }
+            
+            // Créer graphique
+            window.progressChartInstance = new Chart(ctx, {
+                type: 'line',
+                data: {
+                    labels: dates,
+                    datasets: [{
+                        label: 'Cigarettes fumées',
+                        data: cigarettes,
+                        borderColor: '#667eea',
+                        backgroundColor: 'rgba(102, 126, 234, 0.1)',
+                        tension: 0.4,
+                        fill: true
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: {
+                            display: false
+                        }
+                    },
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            ticks: {
+                                stepSize: 1
+                            }
+                        }
+                    }
+                }
+            });
+        }
+
+        function checkBadges() {
+            const badges = document.querySelectorAll('.badge');
+            const startDate = new Date(trackingData.startDate);
+            const currentDate = new Date();
+            const daysSince = Math.floor((currentDate - startDate) / (1000 * 60 * 60 * 24));
+            
+            // Compter jours sans cigarettes
+            let daysClean = 0;
+            Object.values(trackingData.dailyData).forEach(day => {
+                if (day.cigarettes === 0) daysClean++;
+            });
+            
+            // Débloquer badges
+            const milestones = [
+                { days: 1, emoji: '🌟', text: '1 jour' },
+                { days: 3, emoji: '🎯', text: '3 jours' },
+                { days: 7, emoji: '🏆', text: '1 semaine' },
+                { days: 30, emoji: '👑', text: '1 mois' }
+            ];
+            
+            milestones.forEach((milestone, index) => {
+                if (daysClean >= milestone.days && badges[index]) {
+                    badges[index].classList.remove('locked');
+                    badges[index].innerHTML = `<h4>${milestone.emoji}</h4><p>${milestone.text}</p>`;
+                }
+            });
+        }
+
+        // NOUVEAU : Notifications
+        function showNotification(title, message, type = 'info') {
+            const notif = document.getElementById('notification');
+            document.getElementById('notif-title').textContent = title;
+            document.getElementById('notif-message').textContent = message;
+            notif.className = 'notification ' + type;
+            notif.style.display = 'block';
+            
+            setTimeout(() => {
+                notif.style.display = 'none';
+            }, 5000);
+        }
+
+        // Notifications automatiques
+        function setupAutoNotifications() {
+            // Notification après 30 min dans l'app
+            setTimeout(() => {
+                showNotification('💪 Continuez !', 'Vous êtes sur la bonne voie. Chaque minute compte !', 'info');
+            }, 30 * 60 * 1000);
+        }
+
+        // NOUVEAU : SOS Functions
+        function openSOS() {
+            document.getElementById('sos-modal').style.display = 'block';
+        }
+
+        function closeSOS() {
+            document.getElementById('sos-modal').style.display = 'none';
+        }
+
+        function playSOSBreathing() {
+            closeSOS();
+            const modal = document.getElementById('exercise-modal');
+            const content = document.getElementById('modal-content');
+            
+            content.innerHTML = `
+                <h2>🫁 Respiration d'urgence</h2>
+                <p style="text-align: center; font-size: 1.2rem; margin: 30px 0;">
+                    Suivez le cercle avec votre respiration
+                </p>
+                
+                <div style="text-align: center; margin: 40px 0;">
+                    <div id="breathing-circle" style="width: 200px; height: 200px; border-radius: 50%; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); margin: 0 auto; transition: transform 4s;"></div>
+                    <p id="breathing-instruction" style="font-size: 1.5rem; margin-top: 30px; font-weight: 600;">Inspirez...</p>
+                </div>
+
+                <div style="background: #f8f9fa; padding: 20px; border-radius: 15px; margin-top: 30px;">
+                    <p style="text-align: center;">
+                        <strong>Répétez 5 fois :</strong><br>
+                        Inspirez pendant 4 secondes<br>
+                        Retenez 4 secondes<br>
+                        Expirez pendant 4 secondes
+                    </p>
+                </div>
+            `;
+            
+            modal.style.display = 'block';
+            
+            // Animation respiration
+            let cycle = 0;
+            const maxCycles = 5;
+            const circle = document.getElementById('breathing-circle');
+            const instruction = document.getElementById('breathing-instruction');
+            
+            function breathingCycle() {
+                if (cycle >= maxCycles) {
+                    instruction.textContent = '✅ Terminé ! Vous vous sentez mieux ?';
+                    showNotification('🎉 Bravo !', 'Vous avez résisté à l\'envie ! Vous êtes plus fort !', 'success');
+                    return;
+                }
+                
+                // Inspirer (4s)
+                instruction.textContent = 'Inspirez...';
+                circle.style.transform = 'scale(1.5)';
+                
+                setTimeout(() => {
+                    // Retenir (4s)
+                    instruction.textContent = 'Retenez...';
+                    
+                    setTimeout(() => {
+                        // Expirer (4s)
+                        instruction.textContent = 'Expirez...';
+                        circle.style.transform = 'scale(1)';
+                        
+                        setTimeout(() => {
+                            cycle++;
+                            breathingCycle();
+                        }, 4000);
+                    }, 4000);
+                }, 4000);
+            }
+            
+            breathingCycle();
+        }
+
+        // Questions questionnaire (code existant)
         const questions = [
             {
                 question: "Depuis combien de temps fumez-vous ?",
@@ -561,16 +1033,13 @@
                 </div>
             `;
 
-            // Progress
             const progress = ((currentQuestion + 1) / questions.length) * 100;
             document.getElementById('progress-fill').style.width = progress + '%';
             document.getElementById('progress-text').textContent = `Question ${currentQuestion + 1}/${questions.length}`;
 
-            // Boutons
             document.getElementById('prev-btn').style.display = currentQuestion > 0 ? 'inline-block' : 'none';
             document.getElementById('next-btn').textContent = currentQuestion === questions.length - 1 ? 'Voir mes résultats' : 'Suivant →';
 
-            // Event listeners
             document.querySelectorAll('input[type="radio"]').forEach(radio => {
                 radio.addEventListener('change', (e) => {
                     answers[currentQuestion] = parseInt(e.target.value);
@@ -603,14 +1072,12 @@
             const totalScore = answers.reduce((sum, val) => sum + val, 0);
             const avgScore = totalScore / answers.length;
 
-            // Calcul profil
             let profile = "";
             let addiction = "";
             let motivation = "";
-            let lifeExpectancy = 78; // Espérance de vie de base
+            let lifeExpectancy = 78;
             let yearsLost = 0;
 
-            // Déterminer le niveau de dépendance
             if (avgScore < 3) {
                 addiction = "Faible";
                 yearsLost = 2;
@@ -625,7 +1092,6 @@
                 yearsLost = 15;
             }
 
-            // Profil selon les réponses
             const cigarettesPerDay = answers[1];
             const morningSmoke = answers[2];
             
@@ -639,8 +1105,13 @@
                 profile = "Fumeur occasionnel";
             }
 
-            // Motivation
             motivation = answers[4] >= 8 ? "Très motivé" : answers[4] >= 5 ? "Motivé" : "Motivation à renforcer";
+
+            // Sauvegarder données tracking
+            const cigPerDayFromAnswer = questions[1].options.find(o => o.value === cigarettesPerDay)?.text || "20";
+            const avgCigs = parseInt(cigPerDayFromAnswer.split(' ')[0]) || 20;
+            trackingData.averagePerDay = avgCigs;
+            localStorage.setItem('passAntiTabac_tracking', JSON.stringify(trackingData));
 
             userProfile = {
                 profile, addiction, motivation, totalScore,
@@ -686,8 +1157,7 @@
                         <strong>⚠️ Simulation de prise de conscience</strong><br>
                         Espérance de vie estimée si vous continuez : <strong>${userProfile.lifeExpectancy} ans</strong><br>
                         Années potentiellement perdues : <strong>${userProfile.yearsLost} ans</strong><br><br>
-                        <em>Cette estimation est une simulation éducative basée sur des statistiques générales. 
-                        Elle ne constitue pas un diagnostic médical mais vise à créer une prise de conscience.</em>
+                        <em>Cette estimation est une simulation éducative basée sur des statistiques générales.</em>
                     </div>
 
                     <div style="background: rgba(255,255,255,0.2); padding: 20px; border-radius: 10px; margin-top: 20px;">
@@ -705,19 +1175,13 @@
                 return;
             }
 
-            // Préparer les données
             const data = {
                 email: email,
                 profile: userProfile,
                 date: new Date().toLocaleString('fr-FR')
             };
 
-            // Simulation d'envoi (à remplacer par ton endpoint)
             console.log('Données à envoyer:', data);
-            
-            // Tu peux utiliser fetch pour envoyer à ton backend
-            // fetch('ton-endpoint', { method: 'POST', body: JSON.stringify(data) })
-
             alert('✅ Vos résultats ont été envoyés ! Vous recevrez un suivi personnalisé par email.');
         }
 
@@ -726,6 +1190,10 @@
             document.getElementById('questionnaire-screen').style.display = 'none';
             document.getElementById('results-screen').style.display = 'none';
             document.getElementById('dashboard-screen').style.display = 'block';
+            document.getElementById('sos-btn').style.display = 'block';
+            
+            initTracking();
+            setupAutoNotifications();
         }
 
         function openGuidedSession() {
@@ -753,8 +1221,7 @@
                     </audio>
                     
                     <p style="color: white; margin-top: 15px; font-size: 0.9rem;">
-                        💡 Mettez vos écouteurs pour profiter pleinement du son binaural.<br>
-                        Le son binaural favorise une transe profonde (ondes Theta 4-7 Hz).
+                        💡 Mettez vos écouteurs pour profiter pleinement du son binaural.
                     </p>
                 </div>
 
@@ -771,12 +1238,11 @@
 
             modal.style.display = 'block';
 
-            // Gestion du binaural
             const mainAudio = document.getElementById('main-audio');
             const binauralAudio = document.getElementById('binaural-audio');
             const binauralCheckbox = document.getElementById('binaural-checkbox');
 
-            binauralAudio.volume = 0.3; // Volume plus bas pour le binaural
+            binauralAudio.volume = 0.3;
 
             mainAudio.addEventListener('play', async () => {
                 await requestWakeLock();
@@ -794,6 +1260,7 @@
                 binauralAudio.pause();
                 binauralAudio.currentTime = 0;
                 releaseWakeLock();
+                showNotification('🎉 Séance terminée !', 'Bravo pour cet engagement envers vous-même !', 'success');
             });
 
             binauralCheckbox.addEventListener('change', (e) => {
@@ -822,6 +1289,9 @@
             const modal = document.getElementById('exercise-modal');
             const content = document.getElementById('modal-content');
             
+            // Fermer modal SOS si ouvert
+            closeSOS();
+            
             content.innerHTML = `
                 <h2>Exercice ${id} : ${ex.title}</h2>
                 <p style="margin: 15px 0;">${ex.desc}</p>
@@ -839,7 +1309,10 @@
             const audio = document.getElementById(`exercise-audio-${id}`);
             audio.addEventListener('play', requestWakeLock);
             audio.addEventListener('pause', releaseWakeLock);
-            audio.addEventListener('ended', releaseWakeLock);
+            audio.addEventListener('ended', () => {
+                releaseWakeLock();
+                showNotification('✅ Exercice terminé !', 'Excellent travail ! Continuez ainsi !', 'success');
+            });
         }
 
         function closeModal() {
@@ -847,18 +1320,20 @@
             modal.style.display = 'none';
             releaseWakeLock();
             
-            // Stop tous les audios
             document.querySelectorAll('audio').forEach(audio => {
                 audio.pause();
                 audio.currentTime = 0;
             });
         }
 
-        // Fermer modal en cliquant à l'extérieur
         window.onclick = function(event) {
             const modal = document.getElementById('exercise-modal');
+            const sosModal = document.getElementById('sos-modal');
             if (event.target === modal) {
                 closeModal();
+            }
+            if (event.target === sosModal) {
+                closeSOS();
             }
         }
     </script>
