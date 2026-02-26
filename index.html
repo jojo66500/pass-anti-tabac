@@ -4,36 +4,21 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pass Anti Tabac - Hypnose Thérapeutique</title>
-    <meta name="description" content="Programme d'hypnose personnalisé pour l'arrêt du tabac - Protocole professionnel">
-    
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Lora:wght@400;500;600&family=Source+Serif+Pro:wght@300;400;600&display=swap" rel="stylesheet">
-    
+    <meta name="description" content="Programme d'hypnose personnalisé pour l'arrêt du tabac">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Source+Serif+Pro:wght@300;400;600&display=swap" rel="stylesheet">
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
         
-        html {
-            overflow-x: hidden;
-        }
+        html { overflow-x: hidden; }
         
         body {
             font-family: 'Source Serif Pro', serif;
             background: linear-gradient(135deg, #1e3c72 0%, #2a5298 50%, #7e8ba3 100%);
             min-height: 100vh;
             color: #2c3e50;
-            overflow-x: hidden;
-            width: 100%;
         }
         
-        .container {
-            max-width: 900px;
-            margin: 0 auto;
-            padding: 20px;
-        }
+        .container { max-width: 900px; margin: 0 auto; padding: 20px; }
         
         .header {
             text-align: center;
@@ -46,11 +31,6 @@
             font-size: 3rem;
             margin-bottom: 10px;
             text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
-        }
-        
-        .header p {
-            font-size: 1.2rem;
-            opacity: 0.95;
         }
         
         .card {
@@ -70,8 +50,8 @@
             border-radius: 50px;
             cursor: pointer;
             transition: all 0.3s;
-            text-decoration: none;
-            text-align: center;
+            width: 100%;
+            margin: 10px 0;
         }
         
         .btn-primary {
@@ -89,290 +69,77 @@
             color: white;
         }
         
-        .btn-secondary:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 10px 20px rgba(240, 147, 251, 0.4);
-        }
-        
         .btn-success {
             background: linear-gradient(135deg, #10b981 0%, #059669 100%);
             color: white;
         }
         
-        .btn-success:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 10px 20px rgba(16, 185, 129, 0.4);
-        }
-        
-        .user-badge {
-            display: inline-block;
-            padding: 10px 20px;
-            background: linear-gradient(135deg, #10b981 0%, #059669 100%);
-            color: white;
-            border-radius: 25px;
-            font-weight: 600;
-            margin: 15px 0;
-            font-size: 1.1rem;
-        }
-        
-        .home-options {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 30px;
-            margin-top: 40px;
-        }
-        
-        .option-card {
-            background: linear-gradient(135deg, rgba(102, 126, 234, 0.1) 0%, rgba(118, 75, 162, 0.1) 100%);
-            padding: 40px;
-            border-radius: 20px;
-            text-align: center;
-            cursor: pointer;
-            transition: all 0.3s;
-            border: 2px solid transparent;
-        }
-        
-        .option-card:hover {
-            transform: translateY(-5px);
-            border-color: #667eea;
-            box-shadow: 0 15px 30px rgba(102, 126, 234, 0.2);
-        }
-        
-        .option-card h2 {
-            font-family: 'Playfair Display', serif;
-            color: #667eea;
-            margin-bottom: 15px;
-            font-size: 1.8rem;
-        }
-        
-        .option-card p {
-            color: #64748b;
-            line-height: 1.6;
-            margin-bottom: 20px;
-        }
-        
-        .progress-bar {
-            width: 100%;
-            height: 8px;
-            background: #e2e8f0;
-            border-radius: 10px;
-            overflow: hidden;
+        .question-card {
+            background: #f8f9fa;
+            padding: 25px;
+            border-radius: 15px;
             margin: 20px 0;
         }
         
-        .progress-fill {
-            height: 100%;
-            background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
-            transition: width 0.3s;
-        }
-        
-        .question-group {
-            margin: 30px 0;
-        }
-        
-        .question-group label {
-            display: block;
-            font-weight: 600;
-            margin-bottom: 10px;
-            color: #334155;
-            font-size: 1.1rem;
-        }
-        
-        .question-group .hint {
-            display: block;
-            font-size: 0.9rem;
-            color: #64748b;
-            font-weight: normal;
-            margin-top: 5px;
-            font-style: italic;
-        }
-        
-        .question-group input[type="text"],
-        .question-group input[type="number"],
-        .question-group input[type="email"],
-        .question-group input[type="date"],
-        .question-group select,
-        .question-group textarea {
-            width: 100%;
-            max-width: 100%;
-            padding: 12px;
-            border: 2px solid #e2e8f0;
-            border-radius: 10px;
-            font-size: 1rem;
-            font-family: 'Source Serif Pro', serif;
-            transition: border-color 0.3s;
-            box-sizing: border-box;
-        }
-        
-        .question-group input:focus,
-        .question-group select:focus,
-        .question-group textarea:focus {
-            outline: none;
-            border-color: #667eea;
-        }
-        
-        .question-group textarea {
-            min-height: 120px;
-            resize: vertical;
-        }
-        
-        .checkbox-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 15px;
-            margin-top: 15px;
-        }
-        
-        .checkbox-item {
-            display: flex;
-            align-items: center;
-            padding: 15px;
-            background: #f8fafc;
-            border-radius: 10px;
-            cursor: pointer;
-            border: 2px solid transparent;
-            transition: all 0.3s;
-        }
-        
-        .checkbox-item:hover {
-            background: #f1f5f9;
-            border-color: #667eea;
-        }
-        
-        .checkbox-item input {
-            margin-right: 10px;
+        .question-card h3 {
+            color: #667eea;
+            margin-bottom: 15px;
         }
         
         .radio-group {
             display: flex;
             flex-direction: column;
-            gap: 12px;
-            margin-top: 15px;
+            gap: 10px;
         }
         
-        .radio-item {
+        .radio-option {
+            padding: 12px;
+            background: white;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: all 0.3s;
             display: flex;
             align-items: center;
-            padding: 15px;
-            background: #f8fafc;
-            border-radius: 10px;
-            cursor: pointer;
-            border: 2px solid transparent;
-            transition: all 0.3s;
         }
         
-        .radio-item:hover {
-            background: #f1f5f9;
-            border-color: #667eea;
+        .radio-option:hover {
+            background: #e0e7ff;
         }
         
-        .radio-item input {
+        .radio-option input[type="radio"] {
             margin-right: 10px;
-        }
-        
-        .nav-buttons {
-            display: flex;
-            justify-content: space-between;
-            margin-top: 40px;
-        }
-        
-        .section-title {
-            font-family: 'Playfair Display', serif;
-            color: #667eea;
-            font-size: 1.5rem;
-            margin: 40px 0 20px;
-            padding-bottom: 10px;
-            border-bottom: 2px solid #e2e8f0;
-        }
-        
-        .info-box {
-            background: linear-gradient(135deg, rgba(102, 126, 234, 0.1) 0%, rgba(118, 75, 162, 0.1) 100%);
-            padding: 20px;
-            border-radius: 15px;
-            margin: 20px 0;
-            border-left: 4px solid #667eea;
-        }
-        
-        .info-box h4 {
-            color: #667eea;
-            margin-bottom: 10px;
-        }
-        
-        .info-box p {
-            line-height: 1.6;
-            color: #64748b;
-        }
-        
-        .scale-selector {
-            display: flex;
-            gap: 10px;
-            margin-top: 15px;
-            flex-wrap: wrap;
-        }
-        
-        .scale-option {
-            flex: 1;
-            min-width: 60px;
-            padding: 15px 10px;
-            text-align: center;
-            background: #f8fafc;
-            border: 2px solid #e2e8f0;
-            border-radius: 10px;
-            cursor: pointer;
-            transition: all 0.3s;
-            font-weight: 600;
-        }
-        
-        .scale-option:hover {
-            background: #f1f5f9;
-            border-color: #667eea;
-        }
-        
-        .scale-option.selected {
-            background: #667eea;
-            color: white;
-            border-color: #667eea;
         }
         
         .exercise-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             gap: 20px;
-            margin-top: 30px;
+            margin: 20px 0;
         }
         
         .exercise-card {
-            background: linear-gradient(135deg, #f8fafc 0%, #ffffff 100%);
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             padding: 25px;
             border-radius: 15px;
+            color: white;
             cursor: pointer;
-            border: 2px solid #e2e8f0;
             transition: all 0.3s;
         }
         
         .exercise-card:hover {
             transform: translateY(-5px);
-            border-color: #667eea;
-            box-shadow: 0 10px 20px rgba(102, 126, 234, 0.15);
-        }
-        
-        .exercise-icon {
-            font-size: 2.5rem;
-            margin-bottom: 10px;
+            box-shadow: 0 15px 30px rgba(102, 126, 234, 0.3);
         }
         
         .exercise-card h3 {
-            font-family: 'Playfair Display', serif;
-            color: #1e293b;
             margin-bottom: 10px;
+            font-size: 1.2rem;
         }
         
-        .exercise-meta {
-            display: flex;
-            gap: 15px;
-            margin-bottom: 10px;
+        .exercise-duration {
             font-size: 0.9rem;
-            color: #64748b;
+            opacity: 0.9;
+            margin-bottom: 10px;
         }
         
         .modal {
@@ -382,7 +149,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(0, 0, 0, 0.7);
+            background: rgba(0,0,0,0.8);
             z-index: 1000;
             overflow-y: auto;
         }
@@ -391,387 +158,278 @@
             background: white;
             max-width: 800px;
             margin: 50px auto;
-            border-radius: 20px;
             padding: 40px;
+            border-radius: 20px;
             position: relative;
         }
         
-        .modal-close {
+        .close-modal {
             position: absolute;
             top: 20px;
             right: 20px;
             font-size: 2rem;
             cursor: pointer;
-            color: #64748b;
-            background: none;
-            border: none;
-        }
-        
-        .modal-close:hover {
-            color: #1e293b;
-        }
-        
-        .hidden {
-            display: none;
-        }
-        
-        .stats-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 20px;
-            margin: 30px 0;
-        }
-        
-        .stat-card {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            padding: 25px;
-            border-radius: 15px;
-            text-align: center;
-            color: white;
-        }
-        
-        .stat-value {
-            font-size: 2.5rem;
-            font-weight: bold;
-            font-family: 'Playfair Display', serif;
-        }
-        
-        .stat-label {
-            font-size: 0.9rem;
-            opacity: 0.9;
-            margin-top: 5px;
+            color: #666;
         }
         
         .audio-player {
-            background: #f8fafc;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             padding: 20px;
             border-radius: 15px;
             margin: 20px 0;
-            text-align: center;
         }
         
-        .audio-placeholder {
-            padding: 30px;
-            background: linear-gradient(135deg, rgba(102, 126, 234, 0.1) 0%, rgba(118, 75, 162, 0.1) 100%);
+        .audio-player audio {
+            width: 100%;
+            height: 50px;
             border-radius: 10px;
-            border: 2px dashed #667eea;
         }
         
-        .audio-placeholder p {
-            color: #667eea;
+        .binaural-toggle {
+            background: rgba(255,255,255,0.2);
+            padding: 10px 20px;
+            border-radius: 10px;
+            margin: 10px 0;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        
+        .binaural-toggle label {
+            color: white;
+            cursor: pointer;
+        }
+        
+        .results-card {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            color: white;
+            padding: 30px;
+            border-radius: 15px;
+            margin: 20px 0;
+        }
+        
+        .stat-box {
+            background: rgba(255,255,255,0.2);
+            padding: 20px;
+            border-radius: 10px;
+            margin: 10px 0;
+        }
+        
+        .stat-box h4 {
+            font-size: 2rem;
+            margin-bottom: 5px;
+        }
+        
+        .warning-text {
+            background: rgba(255,255,255,0.15);
+            padding: 15px;
+            border-radius: 10px;
+            margin: 15px 0;
+            font-size: 0.9rem;
             font-style: italic;
         }
         
-        @media (max-width: 768px) {
-            /* Layouts en colonnes sur mobile */
-            .home-options,
-            .checkbox-grid,
-            .stats-grid,
-            .scale-selector {
-                grid-template-columns: 1fr;
-            }
-            
-            /* Réduire les tailles de police */
-            .header h1 {
-                font-size: 2rem;
-            }
-            
-            .header p {
-                font-size: 1rem;
-            }
-            
-            /* Réduire les paddings */
-            .card {
-                padding: 25px 15px;
-            }
-            
-            .container {
-                padding: 10px;
-            }
-            
-            .option-card {
-                padding: 25px 20px;
-            }
-            
-            /* Boutons en colonne */
-            .nav-buttons {
-                flex-direction: column;
-                gap: 15px;
-            }
-            
-            .nav-buttons .btn {
-                width: 100%;
-            }
-            
-            /* Exercise grid en 1 colonne */
-            .exercise-grid {
-                grid-template-columns: 1fr;
-            }
-            
-            /* Stats plus compactes */
-            .stat-card {
-                padding: 20px 15px;
-            }
-            
-            .stat-value {
-                font-size: 2rem;
-            }
-            
-            /* Modal plus petit */
-            .modal-content {
-                margin: 20px;
-                padding: 25px 20px;
-            }
-            
-            /* Scale selector wrap */
-            .scale-selector {
-                flex-wrap: wrap;
-            }
-            
-            .scale-option {
-                min-width: 50px;
-                padding: 12px 8px;
-                font-size: 0.9rem;
-            }
-            
-            /* Checkbox et radio plus espacés */
-            .checkbox-item,
-            .radio-item {
-                padding: 12px;
-                font-size: 0.95rem;
-            }
-            
-            /* Question group */
-            .question-group label {
-                font-size: 1rem;
-            }
-            
-            .question-group input,
-            .question-group select,
-            .question-group textarea {
-                font-size: 16px; /* Évite le zoom automatique sur iOS */
-            }
-            
-            /* Section titles plus petits */
-            .section-title {
-                font-size: 1.2rem;
-            }
-            
-            /* Info box plus compact */
-            .info-box {
-                padding: 15px;
-                font-size: 0.95rem;
-            }
-            
-            /* User badge */
-            .user-badge {
-                font-size: 1rem;
-                padding: 8px 16px;
-            }
+        .progress-bar {
+            width: 100%;
+            height: 8px;
+            background: #e0e0e0;
+            border-radius: 4px;
+            overflow: hidden;
+            margin: 10px 0;
         }
         
-        /* Très petits écrans (< 480px) */
-        @media (max-width: 480px) {
-            .header h1 {
-                font-size: 1.5rem;
-            }
-            
-            .card {
-                padding: 20px 12px;
-            }
-            
-            .btn {
-                padding: 12px 30px;
-                font-size: 1rem;
-            }
-            
-            .stat-value {
-                font-size: 1.8rem;
-            }
-            
-            .stat-label {
-                font-size: 0.8rem;
-            }
-        }
-        
-        .breathing-circle {
-            width: 100px;
-            height: 100px;
-            border-radius: 50%;
+        .progress-fill {
+            height: 100%;
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            margin: 20px auto;
-            animation: breathe 4s ease-in-out infinite;
+            transition: width 0.3s;
         }
         
-        @keyframes breathe {
-            0%, 100% { transform: scale(1); opacity: 0.7; }
-            50% { transform: scale(1.2); opacity: 1; }
+        @media (max-width: 768px) {
+            .header h1 { font-size: 2rem; }
+            .card { padding: 25px; }
+            .exercise-grid { grid-template-columns: 1fr; }
         }
     </style>
 </head>
 <body>
-    <div id="app"></div>
+    <div class="container">
+        <div class="header">
+            <h1>🌟 Pass Anti Tabac</h1>
+            <p>Protocole d'hypnose thérapeutique professionnel</p>
+        </div>
+
+        <!-- Écran d'accueil -->
+        <div id="home-screen" class="card">
+            <h2 style="text-align: center; margin-bottom: 30px;">Bienvenue dans votre parcours vers la liberté</h2>
+            <button class="btn btn-primary" onclick="startQuestionnaire()">
+                📋 Découvrir mon profil de fumeur
+            </button>
+            <button class="btn btn-secondary" onclick="showDashboard()">
+                📊 Accéder aux exercices
+            </button>
+        </div>
+
+        <!-- Questionnaire Profil Fumeur -->
+        <div id="questionnaire-screen" style="display: none;">
+            <div class="card">
+                <h2 style="text-align: center; margin-bottom: 20px;">Quel est votre profil de fumeur ?</h2>
+                <p style="text-align: center; color: #666; margin-bottom: 30px;">
+                    Ce questionnaire va établir votre profil et vous donner une simulation de prise de conscience
+                </p>
+                
+                <div class="progress-bar">
+                    <div class="progress-fill" id="progress-fill" style="width: 0%"></div>
+                </div>
+                <p style="text-align: center; margin: 10px 0; color: #666;" id="progress-text">Question 1/8</p>
+
+                <div id="questions-container"></div>
+
+                <div style="display: flex; gap: 10px; margin-top: 20px;">
+                    <button class="btn btn-secondary" onclick="previousQuestion()" id="prev-btn" style="display: none;">
+                        ← Précédent
+                    </button>
+                    <button class="btn btn-primary" onclick="nextQuestion()" id="next-btn">
+                        Suivant →
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Résultats Profil -->
+        <div id="results-screen" style="display: none;">
+            <div class="card">
+                <h2 style="text-align: center; margin-bottom: 20px;">Votre Profil de Fumeur</h2>
+                <div id="results-content"></div>
+                
+                <div style="margin-top: 30px; padding: 20px; background: #f8f9fa; border-radius: 15px;">
+                    <h3>📧 Recevoir un suivi thérapeutique personnalisé</h3>
+                    <p style="margin: 15px 0; color: #666;">
+                        Envoyez-moi vos résultats pour bénéficier d'un accompagnement adapté à votre profil
+                    </p>
+                    <input type="email" id="email-input" placeholder="Votre email" 
+                           style="width: 100%; padding: 15px; border: 2px solid #e0e0e0; border-radius: 10px; margin: 10px 0;">
+                    <button class="btn btn-success" onclick="sendResults()">
+                        Envoyer mes résultats
+                    </button>
+                </div>
+
+                <button class="btn btn-primary" onclick="showDashboard()" style="margin-top: 20px;">
+                    Commencer les exercices
+                </button>
+            </div>
+        </div>
+
+        <!-- Dashboard Exercices -->
+        <div id="dashboard-screen" style="display: none;">
+            <div class="card">
+                <h2 style="text-align: center; margin-bottom: 30px;">Vos exercices d'hypnose</h2>
+                
+                <!-- Séance guidée -->
+                <div style="background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%); padding: 30px; border-radius: 15px; color: white; margin-bottom: 30px; cursor: pointer;" onclick="openGuidedSession()">
+                    <h3>🎧 Séance Guidée Complète</h3>
+                    <p class="exercise-duration">⏱️ 24 minutes 22 secondes</p>
+                    <p>Consolidation, aversion gustative et renforcement quotidien</p>
+                    <p style="font-size: 0.9rem; margin-top: 10px; opacity: 0.9;">
+                        ✨ Avec son binaural intégré pour une transe profonde
+                    </p>
+                </div>
+
+                <!-- Exercices comportementaux -->
+                <h3 style="margin-top: 30px;">🎯 Exercices comportementaux</h3>
+                <div class="exercise-grid">
+                    <div class="exercise-card" onclick="openExercise(1)">
+                        <h3>Exercice 1</h3>
+                        <p class="exercise-duration">⏱️ 2:05</p>
+                        <p>Retarder de 10 minutes</p>
+                    </div>
+                    <div class="exercise-card" onclick="openExercise(2)">
+                        <h3>Exercice 2</h3>
+                        <p class="exercise-duration">⏱️ 3:31</p>
+                        <p>Fantasme de consommation</p>
+                    </div>
+                    <div class="exercise-card" onclick="openExercise(3)">
+                        <h3>Exercice 3</h3>
+                        <p class="exercise-duration">⏱️ 3:04</p>
+                        <p>Lettre de rupture</p>
+                    </div>
+                    <div class="exercise-card" onclick="openExercise(4)">
+                        <h3>Exercice 4</h3>
+                        <p class="exercise-duration">⏱️ 1:46</p>
+                        <p>Changer de main</p>
+                    </div>
+                </div>
+
+                <!-- Exercices d'autohypnose -->
+                <h3 style="margin-top: 30px;">🧘 Exercices d'autohypnose</h3>
+                <div class="exercise-grid">
+                    <div class="exercise-card" onclick="openExercise(5)">
+                        <h3>Exercice 5</h3>
+                        <p class="exercise-duration">⏱️ 10:09</p>
+                        <p>Votre lieu sûr</p>
+                    </div>
+                    <div class="exercise-card" onclick="openExercise(6)">
+                        <h3>Exercice 6</h3>
+                        <p class="exercise-duration">⏱️ 16:24</p>
+                        <p>Rencontre adolescent</p>
+                    </div>
+                    <div class="exercise-card" onclick="openExercise(7)">
+                        <h3>Exercice 7</h3>
+                        <p class="exercise-duration">⏱️ 13:49</p>
+                        <p>Chemin des ressources</p>
+                    </div>
+                    <div class="exercise-card" onclick="openExercise(8)">
+                        <h3>Exercice 8</h3>
+                        <p class="exercise-duration">⏱️ 13:38</p>
+                        <p>Carrefour des possibles</p>
+                    </div>
+                    <div class="exercise-card" onclick="openExercise(9)">
+                        <h3>Exercice 9</h3>
+                        <p class="exercise-duration">⏱️ 14:32</p>
+                        <p>Futurisation positive</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Modal Exercice -->
+        <div id="exercise-modal" class="modal">
+            <div class="modal-content">
+                <span class="close-modal" onclick="closeModal()">&times;</span>
+                <div id="modal-content"></div>
+            </div>
+        </div>
+    </div>
 
     <script>
-        // ===== SYSTÈME DE WAKE LOCK (GARDER L'ÉCRAN ALLUMÉ) =====
+        // Wake Lock
         let wakeLock = null;
-        
-        // Fonction pour activer le Wake Lock
+
         async function requestWakeLock() {
             try {
                 if ('wakeLock' in navigator) {
                     wakeLock = await navigator.wakeLock.request('screen');
-                    console.log('✅ Wake Lock activé - L\'écran reste allumé');
-                    
-                    // Écouter si le Wake Lock est relâché
-                    wakeLock.addEventListener('release', () => {
-                        console.log('⚠️ Wake Lock relâché');
-                    });
-                } else {
-                    console.log('⚠️ Wake Lock API non supportée sur ce navigateur');
                 }
             } catch (err) {
-                console.error('❌ Erreur Wake Lock:', err);
+                console.log('Wake Lock error:', err);
             }
         }
-        
-        // Fonction pour relâcher le Wake Lock
+
         async function releaseWakeLock() {
-            if (wakeLock !== null) {
-                try {
-                    await wakeLock.release();
-                    wakeLock = null;
-                    console.log('✅ Wake Lock relâché');
-                } catch (err) {
-                    console.error('❌ Erreur lors du relâchement du Wake Lock:', err);
-                }
+            if (wakeLock) {
+                await wakeLock.release();
+                wakeLock = null;
             }
         }
-        
-        // Réactiver le Wake Lock si la page redevient visible
+
         document.addEventListener('visibilitychange', async () => {
             if (wakeLock !== null && document.visibilityState === 'visible') {
                 await requestWakeLock();
             }
         });
-        
-        // État global de l'application
-        const state = {
-            currentView: 'home',
-            currentStep: 1,
-            totalSteps: 8, // Augmenté à 8 étapes pour le protocole complet
-            formData: {
-                // Étape 1: Informations de base
-                firstName: '',
-                age: '',
-                email: '',
-                phone: '',
-                cigarettesPerDay: '',
-                yearsSmoking: '',
-                startAge: '',
-                
-                // Étape 2: Histoire tabagique détaillée
-                firstCigaretteContext: '',
-                familySmoking: '',
-                smokingEvolution: '',
-                typeOfSmoker: '', // régulier, occasionnel, social
-                
-                // Étape 3: Motivations approfondies
-                primaryMotivations: [],
-                motivationIntensity: '', // échelle 1-10
-                triggerEvent: '',
-                personalGoals: '',
-                
-                // Étape 4: Obstacles et craintes
-                mainObstacles: [],
-                specificFears: '',
-                previousAttempts: '',
-                failureReasons: '',
-                
-                // Étape 5: Situations de consommation
-                smokingSituations: [],
-                emotionalTriggers: '',
-                socialContext: '',
-                rituals: '',
-                
-                // Étape 6: Santé et bien-être
-                healthConcerns: [],
-                physicalSymptoms: '',
-                healthMotivation: '',
-                medicalHistory: '',
-                
-                // Étape 7: Vision et objectifs
-                futureVision: '',
-                shortTermGoals: '',
-                longTermGoals: '',
-                successCriteria: '',
-                
-                // Étape 8: Engagement et ressources
-                commitmentLevel: '', // échelle 1-10
-                supportSystem: '',
-                nicotineSubstitution: '',
-                readyToQuit: '',
-                quitDate: ''
-            },
-            completedExercises: [],
-            quitDate: null
-        };
 
-        // ===== FONCTIONS DE SAUVEGARDE LOCALE =====
-        function saveData() {
-            const userEmail = state.formData.email || 'guest';
-            const saveKey = `passAntiTabac_${userEmail}`;
-            localStorage.setItem(saveKey, JSON.stringify(state));
-            console.log('✅ Données sauvegardées pour:', userEmail);
-        }
-
-        function loadData() {
-            // Charger automatiquement au démarrage
-            const allKeys = Object.keys(localStorage).filter(k => k.startsWith('passAntiTabac_'));
-            if (allKeys.length > 0) {
-                // Prendre la dernière session sauvegardée
-                const lastKey = allKeys[allKeys.length - 1];
-                const saved = localStorage.getItem(lastKey);
-                if (saved) {
-                    Object.assign(state, JSON.parse(saved));
-                    console.log('✅ Données chargées automatiquement');
-                }
-            }
-        }
-
-        function resetData() {
-            if (confirm('⚠️ Êtes-vous sûr de vouloir réinitialiser toutes vos données ? Cette action est irréversible.')) {
-                const userEmail = state.formData.email;
-                if (userEmail) {
-                    localStorage.removeItem(`passAntiTabac_${userEmail}`);
-                }
-                localStorage.clear(); // Nettoyer tout
-                alert('✅ Données réinitialisées !');
-                location.reload();
-            }
-        }
-
-        function calculateStats() {
-            const quitDate = state.quitDate || state.formData.quitDate;
-            if (!quitDate) {
-                return { daysSinceQuit: 0, cigarettesAvoided: 0, moneySaved: '0' };
-            }
-            
-            const daysSinceQuit = Math.floor((new Date() - new Date(quitDate)) / (1000 * 60 * 60 * 24));
-            const cigarettesPerDay = parseInt(state.formData.cigarettesPerDay) || 0;
-            const cigarettesAvoided = Math.max(0, daysSinceQuit * cigarettesPerDay);
-            const pricePerCigarette = 0.5; // Prix moyen par cigarette
-            const moneySaved = cigarettesAvoided * pricePerCigarette;
-            
-            return {
-                daysSinceQuit: Math.max(0, daysSinceQuit),
-                cigarettesAvoided,
-                moneySaved: moneySaved.toFixed(0)
-            };
-        }
-
-        // URLs des audios hébergés sur GitHub
+        // URLs des audios
         const audioUrls = {
+            0: 'audios/seance-guidee-complete.mp3',
             1: 'audios/exercice-1-retarder.mp3',
             2: 'audios/exercice-2-fantasme.mp3',
             3: 'audios/exercice-3-lettre.mp3',
@@ -780,1455 +438,429 @@
             6: 'audios/exercice-6-adolescent.mp3',
             7: 'audios/exercice-7-ressources.mp3',
             8: 'audios/exercice-8-carrefour.mp3',
-            9: 'audios/exercice-9-futurisation.mp3',
-            0: 'audios/seance-guidee-complete.mp3' // Séance guidée 30 min
+            9: 'audios/exercice-9-futurisation.mp3'
         };
 
-        // Données des exercices (identiques à avant)
-        const exercises = [
+        // Durées des audios
+        const audioDurations = {
+            0: "24:22", 1: "2:05", 2: "3:31", 3: "3:04", 4: "1:46",
+            5: "10:09", 6: "16:24", 7: "13:49", 8: "13:38", 9: "14:32"
+        };
+
+        // Questions du profil fumeur
+        const questions = [
             {
-                id: 1,
-                title: "Retarder une cigarette de 10 minutes",
-                icon: "⏰",
-                category: "Prescription de tâche",
-                duration: "10 min",
-                description: "Choisissez la cigarette la plus importante de la journée et attendez 10 minutes avant de l'allumer.",
-                steps: [
-                    "Choisissez votre cigarette la plus importante",
-                    "Notez l'heure exacte de l'envie",
-                    "Attendez 10 minutes (ni trop court, ni trop long)",
-                    "La personne fixe l'heure, sait pouvoir fumer après",
-                    "La personne s'occupe en attendant",
-                    "L'envie refuse ou disparaît souvent"
+                question: "Depuis combien de temps fumez-vous ?",
+                options: [
+                    { text: "Moins d'1 an", value: 1 },
+                    { text: "1 à 5 ans", value: 3 },
+                    { text: "5 à 10 ans", value: 5 },
+                    { text: "10 à 20 ans", value: 7 },
+                    { text: "Plus de 20 ans", value: 10 }
                 ]
             },
             {
-                id: 2,
-                title: "Le fantasme de la consommation",
-                icon: "💭",
-                category: "Autohypnose",
-                duration: "15 min",
-                description: "Explorez l'envie de fumer et imaginez toutes ses conséquences jusqu'au bout.",
-                steps: [
-                    "Ressentez une envie de fumer",
-                    "Donnez-vous la chance de vous livrer au fantasme",
-                    "Prenez quelques instants et imaginez",
-                    "Vous prenez une cigarette, l'allumez",
-                    "Vous tirez sur la première bouffée",
-                    "Vous avez le goût du tabac dans la bouche",
-                    "Sentez le passage de la fumée inhalée",
-                    "Vous soufflez, voyez le nuage de fumée",
-                    "Imaginez aussi loin que possible la consommation"
+                question: "Combien de cigarettes fumez-vous par jour ?",
+                options: [
+                    { text: "Moins de 5", value: 1 },
+                    { text: "5 à 10", value: 3 },
+                    { text: "10 à 20", value: 5 },
+                    { text: "20 à 30", value: 7 },
+                    { text: "Plus de 30", value: 10 }
                 ]
             },
             {
-                id: 3,
-                title: "La lettre de rupture",
-                icon: "✉️",
-                category: "Expression émotionnelle",
-                duration: "20 min",
-                description: "Écrivez une lettre à la cigarette pour exprimer votre relation et votre décision.",
-                steps: [
-                    "Décrivez votre relation avec la cigarette",
-                    "Ce qu'elle vous a apporté",
-                    "Ce qui vous gêne à présent",
-                    "Les raisons pour lesquelles vous souhaitez vous séparer",
-                    "Comment il va s'y prendre, comment sera sa vie sans",
-                    "Peut être un moment d'émotions intenses",
-                    "Placée sous enveloppe cachetée pour le second rendez-vous"
+                question: "Fumez-vous dès le réveil ?",
+                options: [
+                    { text: "Plus d'1 heure après", value: 1 },
+                    { text: "30-60 minutes après", value: 3 },
+                    { text: "5-30 minutes après", value: 7 },
+                    { text: "Dans les 5 premières minutes", value: 10 }
                 ]
             },
             {
-                id: 4,
-                title: "Changer de main",
-                icon: "🤚",
-                category: "Modification comportementale",
-                duration: "1 jour",
-                description: "Tenez votre cigarette de l'autre main pour briser l'automatisme.",
-                steps: [
-                    "Pendant toute une journée",
-                    "Tenez la cigarette avec l'autre main",
-                    "La main opposée à celle habituelle",
-                    "Cela remet de la cognition dans un comportement automatique",
-                    "Vous comprenez que vous pouvez reprendre le contrôle",
-                    "Vous créez une nouvelle habitude"
+                question: "Avez-vous déjà essayé d'arrêter ?",
+                options: [
+                    { text: "Jamais", value: 1 },
+                    { text: "1 fois", value: 3 },
+                    { text: "2-3 fois", value: 5 },
+                    { text: "4-5 fois", value: 7 },
+                    { text: "Plus de 5 fois", value: 10 }
                 ]
             },
             {
-                id: 5,
-                title: "Le lieu sûr",
-                icon: "🏝️",
-                category: "Autohypnose",
-                duration: "15 min",
-                description: "Créez votre espace mental de sécurité et de ressources.",
-                steps: [
-                    "Fermez les yeux et respirez profondément",
-                    "Imaginez un lieu où vous vous sentez bien",
-                    "Ce peut être réel ou imaginaire",
-                    "Remarquez tous les détails sensoriels",
-                    "Les couleurs, les sons, les odeurs",
-                    "Ressentez la sécurité et le calme",
-                    "Vous pouvez revenir ici quand vous voulez"
+                question: "Quelle est votre motivation principale ?",
+                options: [
+                    { text: "Ma santé", value: 8 },
+                    { text: "Ma famille", value: 9 },
+                    { text: "L'argent économisé", value: 5 },
+                    { text: "L'image de moi", value: 6 },
+                    { text: "Pression extérieure", value: 3 }
                 ]
             },
             {
-                id: 6,
-                title: "La rencontre avec l'adolescent",
-                icon: "👤",
-                category: "Visualisation thérapeutique",
-                duration: "20 min",
-                description: "Rencontrez votre adolescent intérieur qui a commencé à fumer.",
-                steps: [
-                    "En autohypnose, visualisez l'adolescent qui a commencé à fumer",
-                    "Ne doit jamais être culpabilisant",
-                    "Accueillez-le avec indulgence",
-                    "Il avait de très bonnes raisons de commencer",
-                    "Peut-être pour intégrer un groupe",
-                    "En réalité, il est entré dans un piège",
-                    "Cet adolescent a toutes les raisons d'entrer dans ce piège",
-                    "Retirez ce costume, cette panoplie de fumeur",
-                    "Retrouvez la personne naturellement non-fumeuse"
+                question: "Avez-vous des problèmes de santé liés au tabac ?",
+                options: [
+                    { text: "Aucun pour l'instant", value: 1 },
+                    { text: "Essoufflement léger", value: 3 },
+                    { text: "Toux chronique", value: 5 },
+                    { text: "Problèmes respiratoires", value: 7 },
+                    { text: "Pathologies diagnostiquées", value: 10 }
                 ]
             },
             {
-                id: 7,
-                title: "Le chemin des ressources",
-                icon: "🛤️",
-                category: "Visualisation guidée",
-                duration: "15 min",
-                description: "Parcourez un chemin symbolique pour trouver vos ressources.",
-                steps: [
-                    "Imaginez-vous debout au début d'un chemin",
-                    "Ce chemin représente votre changement",
-                    "En marchant, vous trouvez des ressources",
-                    "Chaque ressource consolide votre confiance",
-                    "Lorsqu'il dort, naturellement non-fumeur",
-                    "Quand il est trop occupé pour y penser",
-                    "Dans les endroits interdits de fumer",
-                    "Tous ces moments où il a fait des tentatives"
+                question: "Dans quelles situations fumez-vous le plus ?",
+                options: [
+                    { text: "Stress/anxiété", value: 7 },
+                    { text: "Socialisation", value: 4 },
+                    { text: "Après les repas", value: 5 },
+                    { text: "Par habitude", value: 6 },
+                    { text: "Tout le temps", value: 10 }
                 ]
             },
             {
-                id: 8,
-                title: "Le carrefour des possibles",
-                icon: "🔀",
-                category: "Projection future",
-                duration: "15 min",
-                description: "Explorez les deux chemins : fumeur vs non-fumeur.",
-                steps: [
-                    "Vous arrivez à un embranchement",
-                    "Le chemin partant à gauche représente le passé",
-                    "Le chemin de gauche n'est pas agréable",
-                    "L'argent gaspillé, celui de droite vous emmène vers la bonne santé",
-                    "Imaginez vos petits-enfants faisant des câlins et bisous",
-                    "Le chemin de droite est celui du non-fumeur",
-                    "Vous vous tournez vers celui de droite",
-                    "C'est le chemin du non-fumeur",
-                    "Vous vous engagez sur ce chemin agréable"
-                ]
-            },
-            {
-                id: 9,
-                title: "Futurisation positive",
-                icon: "🌟",
-                category: "Projection temporelle",
-                duration: "20 min",
-                description: "Projetez-vous dans votre avenir de non-fumeur.",
-                steps: [
-                    "Imaginez, maintenant, que vous avancez dans le temps",
-                    "Dans quelques heures, vous percevez déjà les parfums",
-                    "Dans quelques jours, vous ressentez un regain d'énergie",
-                    "Dans quelques semaines, vous voyez cet état comme une nouvelle évidence",
-                    "Dans quelques mois, vous vivez cet état comme naturel",
-                    "Vous découvrez tout ce que ce changement vous a permis",
-                    "Dans quelques années, vous découvrez la réussite d'un défi important",
-                    "Les projets accomplis, les économies réalisées"
+                question: "Quel âge avez-vous ?",
+                options: [
+                    { text: "18-25 ans", value: 2 },
+                    { text: "26-35 ans", value: 4 },
+                    { text: "36-45 ans", value: 6 },
+                    { text: "46-55 ans", value: 8 },
+                    { text: "56 ans et plus", value: 10 }
                 ]
             }
         ];
 
-        // Données de la séance guidée
-        const guidedSession = {
-            title: "Séance d'Hypnose Guidée",
-            duration: "30 minutes",
-            steps: [
-                {
-                    title: "Installation et induction",
-                    duration: "5 min",
-                    text: "Vous voici assis confortablement. Vos yeux sont fermés. Pouvez-vous sentir ce début de relâchement, cette détente paisible qui s'installe..."
-                },
-                {
-                    title: "Retour aux ressources",
-                    duration: "5 min",
-                    text: "Je me demande si vous pouvez vous souvenir d'une époque où vous étiez plus jeune, avant de fumer des cigarettes..."
-                },
-                {
-                    title: "Le chemin de gauche - fumeur",
-                    duration: "5 min",
-                    text: "Ce chemin de gauche n'est pas agréable. Il mène vers des problèmes de santé, l'argent gaspillé..."
-                },
-                {
-                    title: "Le chemin de droite - non-fumeur",
-                    duration: "5 min",
-                    text: "Le chemin du fumeur. Mais vous savez vers quoi il mène. Celui du non-fumeur est bien plus agréable..."
-                },
-                {
-                    title: "Suggestions post-hypnotiques",
-                    duration: "5 min",
-                    text: "Vous êtes un non-fumeur maintenant. Vous refusez facilement les cigarettes..."
-                },
-                {
-                    title: "Sortie de transe",
-                    duration: "5 min",
-                    text: "Dans un instant, je vais compter de un à cinq. À cinq, vous serez complètement éveillé, alerte et rafraîchi..."
-                }
-            ]
-        };
-
-        // Fonction pour rendre le HTML
-        function render() {
-            const app = document.getElementById('app');
-            
-            switch(state.currentView) {
-                case 'home':
-                    app.innerHTML = renderHome();
-                    break;
-                case 'questionnaire':
-                    app.innerHTML = renderQuestionnaire();
-                    break;
-                case 'exercises':
-                    app.innerHTML = renderExercises();
-                    break;
-                case 'guidedSession':
-                    app.innerHTML = renderGuidedSession();
-                    // Ajouter les listeners pour l'audio de la séance guidée
-                    setTimeout(() => {
-                        const audioElement = document.getElementById('seance-guidee-audio');
-                        if (audioElement) {
-                            audioElement.addEventListener('play', async () => {
-                                await requestWakeLock();
-                                console.log('🎵 Séance guidée en lecture - Écran maintenu allumé');
-                            });
-                            
-                            audioElement.addEventListener('pause', async () => {
-                                await releaseWakeLock();
-                                console.log('⏸️ Séance guidée en pause - Wake Lock relâché');
-                            });
-                            
-                            audioElement.addEventListener('ended', async () => {
-                                await releaseWakeLock();
-                                console.log('✅ Séance guidée terminée - Wake Lock relâché');
-                            });
-                        }
-                    }, 100);
-                    break;
-                case 'dashboard':
-                    app.innerHTML = renderDashboard();
-                    break;
-            }
-            
-            attachEventListeners();
-        }
-
-        // Page d'accueil
-        function renderHome() {
-            const stats = calculateStats();
-            const hasData = state.formData.firstName && (state.quitDate || state.formData.quitDate);
-            
-            return `
-                <div class="header">
-                    <h1>🌬️ Pass Anti Tabac</h1>
-                    <p>Votre accompagnement personnalisé pour l'arrêt du tabac</p>
-                    <p style="font-size: 0.9rem; margin-top: 10px; opacity: 0.8;">Protocole professionnel d'hypnose thérapeutique</p>
-                    ${hasData ? `<div class="user-badge">👋 Bonjour ${state.formData.firstName} !</div>` : ''}
-                </div>
-                
-                <div class="container">
-                    ${hasData ? `
-                        <div class="card" style="margin-bottom: 30px;">
-                            <h2 style="font-family: 'Playfair Display', serif; margin-bottom: 20px; text-align: center; color: #667eea;">📊 Vos Progrès</h2>
-                            <div class="stats-grid">
-                                <div class="stat-card">
-                                    <div class="stat-value">${stats.daysSinceQuit}</div>
-                                    <div class="stat-label">Jours sans cigarette</div>
-                                </div>
-                                <div class="stat-card">
-                                    <div class="stat-value">${stats.cigarettesAvoided}</div>
-                                    <div class="stat-label">Cigarettes évitées</div>
-                                </div>
-                                <div class="stat-card">
-                                    <div class="stat-value">${stats.moneySaved}€</div>
-                                    <div class="stat-label">Économies réalisées</div>
-                                </div>
-                            </div>
-                            <div style="text-align: center; margin-top: 20px;">
-                                <button class="btn btn-success" onclick="goToDashboard()">📈 Voir le tableau de bord complet →</button>
-                            </div>
-                        </div>
-                    ` : ''}
-                    
-                    <div class="card">
-                        <div class="home-options">
-                            <div class="option-card" onclick="startQuestionnaire()">
-                                <h2>📋 ${hasData ? 'Mettre à jour mon profil' : 'Parcours Guidé'}</h2>
-                                <p>${hasData ? 'Modifiez vos informations ou complétez votre questionnaire.' : 'Commencez par remplir le questionnaire détaillé pour recevoir un accompagnement sur mesure basé sur votre profil unique.'}</p>
-                                <button class="btn btn-primary">${hasData ? 'Modifier le questionnaire' : 'Commencer le questionnaire'}</button>
-                            </div>
-                            
-                            <div class="option-card" onclick="goToExercises()">
-                                <h2>🧘 Accès Libre</h2>
-                                <p>Accédez directement aux 9 exercices d'autohypnose et à la séance guidée de 30 minutes.</p>
-                                <button class="btn btn-secondary">Explorer les exercices</button>
-                            </div>
-                        </div>
-                        
-                        <div class="info-box" style="margin-top: 40px;">
-                            <h4>💡 À propos de ce programme</h4>
-                            <p>Ce programme combine les techniques d'hypnose thérapeutique les plus efficaces pour l'arrêt du tabac. Le questionnaire détaillé permet une personnalisation complète de votre accompagnement.</p>
-                        </div>
-                        
-                        ${hasData ? `
-                            <div style="text-align: center; margin-top: 30px; padding-top: 30px; border-top: 2px solid #e2e8f0;">
-                                <p style="color: #64748b; margin-bottom: 15px; font-size: 0.9rem;">Vos données sont sauvegardées localement dans votre navigateur</p>
-                                <button class="btn btn-secondary" onclick="resetData()" style="font-size: 0.9rem; padding: 10px 30px;">🔄 Nouveau parcours (réinitialiser)</button>
-                            </div>
-                        ` : ''}
-                    </div>
-                </div>
-            `;
-        }
-
-        // Questionnaire avec 8 étapes détaillées
-        function renderQuestionnaire() {
-            const progress = (state.currentStep / state.totalSteps) * 100;
-            
-            let stepContent = '';
-            
-            switch(state.currentStep) {
-                case 1:
-                    stepContent = renderStep1();
-                    break;
-                case 2:
-                    stepContent = renderStep2();
-                    break;
-                case 3:
-                    stepContent = renderStep3();
-                    break;
-                case 4:
-                    stepContent = renderStep4();
-                    break;
-                case 5:
-                    stepContent = renderStep5();
-                    break;
-                case 6:
-                    stepContent = renderStep6();
-                    break;
-                case 7:
-                    stepContent = renderStep7();
-                    break;
-                case 8:
-                    stepContent = renderStep8();
-                    break;
-            }
-            
-            return `
-                <div class="header">
-                    <h1>📋 Questionnaire Personnalisé</h1>
-                    <p>Étape ${state.currentStep} sur ${state.totalSteps}</p>
-                </div>
-                
-                <div class="container">
-                    <div class="card">
-                        <div class="progress-bar">
-                            <div class="progress-fill" style="width: ${progress}%"></div>
-                        </div>
-                        
-                        ${stepContent}
-                        
-                        <div class="nav-buttons">
-                            ${state.currentStep > 1 ? '<button class="btn btn-secondary" onclick="previousStep()">← Précédent</button>' : '<button class="btn btn-secondary" onclick="goHome()">← Accueil</button>'}
-                            ${state.currentStep < state.totalSteps ? '<button class="btn btn-primary" onclick="nextStep()">Suivant →</button>' : '<button class="btn btn-primary" onclick="submitQuestionnaire()">Envoyer et commencer 🚀</button>'}
-                        </div>
-                    </div>
-                </div>
-            `;
-        }
-
-        // Étape 1: Informations de base
-        function renderStep1() {
-            return `
-                <h2 class="section-title">Informations de base</h2>
-                
-                <div class="info-box">
-                    <p>Ces informations nous permettent de personnaliser votre accompagnement et de vous contacter si nécessaire.</p>
-                </div>
-                
-                <div class="question-group">
-                    <label>Prénom *</label>
-                    <input type="text" id="firstName" value="${state.formData.firstName}" placeholder="Votre prénom">
-                </div>
-                
-                <div class="question-group">
-                    <label>Âge *</label>
-                    <input type="number" id="age" value="${state.formData.age}" placeholder="Votre âge">
-                </div>
-                
-                <div class="question-group">
-                    <label>Email</label>
-                    <span class="hint">Optionnel - pour recevoir des ressources complémentaires</span>
-                    <input type="email" id="email" value="${state.formData.email}" placeholder="votre.email@exemple.com">
-                </div>
-                
-                <div class="question-group">
-                    <label>Téléphone</label>
-                    <span class="hint">Optionnel - pour un suivi personnalisé</span>
-                    <input type="text" id="phone" value="${state.formData.phone}" placeholder="06 12 34 56 78">
-                </div>
-                
-                <h3 class="section-title" style="font-size: 1.2rem; margin-top: 40px;">Votre consommation actuelle</h3>
-                
-                <div class="question-group">
-                    <label>Combien de cigarettes fumez-vous par jour ? *</label>
-                    <input type="number" id="cigarettesPerDay" value="${state.formData.cigarettesPerDay}" placeholder="Nombre de cigarettes">
-                </div>
-                
-                <div class="question-group">
-                    <label>Depuis combien d'années fumez-vous ? *</label>
-                    <input type="number" id="yearsSmoking" value="${state.formData.yearsSmoking}" placeholder="Nombre d'années">
-                </div>
-                
-                <div class="question-group">
-                    <label>À quel âge avez-vous commencé à fumer ? *</label>
-                    <input type="number" id="startAge" value="${state.formData.startAge}" placeholder="Âge de début">
-                </div>
-            `;
-        }
-
-        // Étape 2: Histoire tabagique détaillée
-        function renderStep2() {
-            return `
-                <h2 class="section-title">Votre histoire tabagique</h2>
-                
-                <div class="info-box">
-                    <h4>💭 L'importance de votre histoire</h4>
-                    <p>Comprendre comment et pourquoi vous avez commencé à fumer nous aide à identifier les mécanismes profonds de votre relation au tabac.</p>
-                </div>
-                
-                <div class="question-group">
-                    <label>Racontez le contexte de votre première cigarette</label>
-                    <span class="hint">Où étiez-vous ? Avec qui ? Qu'est-ce qui vous a poussé à essayer ?</span>
-                    <textarea id="firstCigaretteContext" placeholder="Décrivez ce moment aussi précisément que possible...">${state.formData.firstCigaretteContext}</textarea>
-                </div>
-                
-                <div class="question-group">
-                    <label>Y avait-il des fumeurs dans votre famille ou entourage proche ?</label>
-                    <div class="radio-group">
-                        <label class="radio-item">
-                            <input type="radio" name="familySmoking" value="parents" ${state.formData.familySmoking === 'parents' ? 'checked' : ''}>
-                            <span>Oui, mes parents fumaient</span>
-                        </label>
-                        <label class="radio-item">
-                            <input type="radio" name="familySmoking" value="siblings" ${state.formData.familySmoking === 'siblings' ? 'checked' : ''}>
-                            <span>Oui, mes frères et sœurs fumaient</span>
-                        </label>
-                        <label class="radio-item">
-                            <input type="radio" name="familySmoking" value="friends" ${state.formData.familySmoking === 'friends' ? 'checked' : ''}>
-                            <span>Oui, mes amis fumaient</span>
-                        </label>
-                        <label class="radio-item">
-                            <input type="radio" name="familySmoking" value="no" ${state.formData.familySmoking === 'no' ? 'checked' : ''}>
-                            <span>Non, personne ne fumait autour de moi</span>
-                        </label>
-                    </div>
-                </div>
-                
-                <div class="question-group">
-                    <label>Comment votre consommation a-t-elle évolué au fil du temps ?</label>
-                    <span class="hint">A-t-elle augmenté progressivement ? Y a-t-il eu des périodes d'arrêt ou de diminution ?</span>
-                    <textarea id="smokingEvolution" placeholder="Décrivez l'évolution de votre consommation...">${state.formData.smokingEvolution}</textarea>
-                </div>
-                
-                <div class="question-group">
-                    <label>Quel type de fumeur êtes-vous ?</label>
-                    <div class="radio-group">
-                        <label class="radio-item">
-                            <input type="radio" name="typeOfSmoker" value="regular" ${state.formData.typeOfSmoker === 'regular' ? 'checked' : ''}>
-                            <span><strong>Fumeur régulier</strong> - Je fume tous les jours, à des moments précis</span>
-                        </label>
-                        <label class="radio-item">
-                            <input type="radio" name="typeOfSmoker" value="occasional" ${state.formData.typeOfSmoker === 'occasional' ? 'checked' : ''}>
-                            <span><strong>Fumeur occasionnel</strong> - Je fume selon les situations, pas tous les jours</span>
-                        </label>
-                        <label class="radio-item">
-                            <input type="radio" name="typeOfSmoker" value="social" ${state.formData.typeOfSmoker === 'social' ? 'checked' : ''}>
-                            <span><strong>Fumeur social</strong> - Je fume principalement en société</span>
-                        </label>
-                        <label class="radio-item">
-                            <input type="radio" name="typeOfSmoker" value="compulsive" ${state.formData.typeOfSmoker === 'compulsive' ? 'checked' : ''}>
-                            <span><strong>Fumeur compulsif</strong> - Je fume beaucoup, de manière automatique</span>
-                        </label>
-                    </div>
-                </div>
-            `;
-        }
-
-        // Étape 3: Motivations approfondies
-        function renderStep3() {
-            const motivationOptions = [
-                { value: 'health', label: '❤️ Santé personnelle', desc: 'Préserver ma santé et mon bien-être' },
-                { value: 'family', label: '👨‍👩‍👧‍👦 Famille', desc: 'Pour mes proches et mes enfants' },
-                { value: 'money', label: '💰 Économies', desc: 'Arrêter de dépenser pour le tabac' },
-                { value: 'freedom', label: '🦅 Liberté', desc: 'Ne plus être dépendant' },
-                { value: 'performance', label: '🏃 Performance', desc: 'Retrouver mon souffle et mon énergie' },
-                { value: 'image', label: '✨ Image de soi', desc: 'Me sentir mieux dans ma peau' }
-            ];
-            
-            return `
-                <h2 class="section-title">Vos motivations profondes</h2>
-                
-                <div class="info-box">
-                    <h4>🎯 La clé de la réussite</h4>
-                    <p>Des motivations claires et puissantes sont essentielles pour réussir votre sevrage. Prenez le temps d'identifier ce qui compte vraiment pour vous.</p>
-                </div>
-                
-                <div class="question-group">
-                    <label>Quelles sont vos principales motivations pour arrêter ? (plusieurs choix possibles)</label>
-                    <div class="checkbox-grid">
-                        ${motivationOptions.map(option => `
-                            <div class="checkbox-item">
-                                <input type="checkbox" id="${option.value}" value="${option.value}" 
-                                    ${state.formData.primaryMotivations.includes(option.value) ? 'checked' : ''}>
-                                <div>
-                                    <strong>${option.label}</strong>
-                                    <div style="font-size: 0.85rem; color: #64748b; margin-top: 5px;">${option.desc}</div>
-                                </div>
-                            </div>
-                        `).join('')}
-                    </div>
-                </div>
-                
-                <div class="question-group">
-                    <label>Sur une échelle de 1 à 10, à quel point votre motivation est-elle forte ?</label>
-                    <span class="hint">1 = Très faible | 10 = Absolument déterminé(e)</span>
-                    <div class="scale-selector">
-                        ${Array.from({length: 10}, (_, i) => i + 1).map(num => `
-                            <div class="scale-option ${state.formData.motivationIntensity == num ? 'selected' : ''}" 
-                                 onclick="selectScale('motivationIntensity', ${num})">
-                                ${num}
-                            </div>
-                        `).join('')}
-                    </div>
-                </div>
-                
-                <div class="question-group">
-                    <label>Y a-t-il un événement déclencheur qui vous pousse à arrêter maintenant ?</label>
-                    <span class="hint">Ex: Résultats médicaux, naissance, décès d'un proche fumeur, etc.</span>
-                    <textarea id="triggerEvent" placeholder="Décrivez l'événement s'il y en a un...">${state.formData.triggerEvent}</textarea>
-                </div>
-                
-                <div class="question-group">
-                    <label>Qu'espérez-vous accomplir en devenant non-fumeur ?</label>
-                    <span class="hint">Objectifs personnels, projets de vie, rêves à réaliser...</span>
-                    <textarea id="personalGoals" placeholder="Décrivez vos objectifs et aspirations...">${state.formData.personalGoals}</textarea>
-                </div>
-            `;
-        }
-
-        // Étape 4: Obstacles et craintes
-        function renderStep4() {
-            const obstacleOptions = [
-                { value: 'stress', label: '😰 Gestion du stress', desc: 'La cigarette m\'aide à gérer le stress' },
-                { value: 'habit', label: '🔄 Habitude forte', desc: 'C\'est devenu un automatisme' },
-                { value: 'weight', label: '⚖️ Peur de grossir', desc: 'J\'ai peur de prendre du poids' },
-                { value: 'social', label: '👥 Pression sociale', desc: 'Mon entourage fume' },
-                { value: 'withdrawal', label: '😣 Peur du manque', desc: 'J\'ai peur de souffrir' },
-                { value: 'identity', label: '🎭 Part de mon identité', desc: 'Je me sens fumeur(se)' }
-            ];
-            
-            return `
-                <h2 class="section-title">Vos obstacles et appréhensions</h2>
-                
-                <div class="info-box">
-                    <h4>🚧 Identifier pour mieux surmonter</h4>
-                    <p>Reconnaître vos freins est une étape essentielle. Cela nous permet d'adapter l'accompagnement pour lever ces obstacles.</p>
-                </div>
-                
-                <div class="question-group">
-                    <label>Quels sont vos principaux freins à l'arrêt ? (plusieurs choix possibles)</label>
-                    <div class="checkbox-grid">
-                        ${obstacleOptions.map(option => `
-                            <div class="checkbox-item">
-                                <input type="checkbox" id="obstacle_${option.value}" value="${option.value}"
-                                    ${state.formData.mainObstacles.includes(option.value) ? 'checked' : ''}>
-                                <div>
-                                    <strong>${option.label}</strong>
-                                    <div style="font-size: 0.85rem; color: #64748b; margin-top: 5px;">${option.desc}</div>
-                                </div>
-                            </div>
-                        `).join('')}
-                    </div>
-                </div>
-                
-                <div class="question-group">
-                    <label>Quelles sont vos craintes spécifiques par rapport à l'arrêt du tabac ?</label>
-                    <span class="hint">Soyez honnête - il n'y a pas de mauvaise réponse</span>
-                    <textarea id="specificFears" placeholder="Ex: J'ai peur d'être irritable, de ne pas réussir, de m'ennuyer...">${state.formData.specificFears}</textarea>
-                </div>
-                
-                <div class="question-group">
-                    <label>Avez-vous déjà essayé d'arrêter de fumer auparavant ?</label>
-                    <div class="radio-group">
-                        <label class="radio-item">
-                            <input type="radio" name="previousAttempts" value="never" ${state.formData.previousAttempts === 'never' ? 'checked' : ''}>
-                            <span>Non, c'est ma première tentative</span>
-                        </label>
-                        <label class="radio-item">
-                            <input type="radio" name="previousAttempts" value="once" ${state.formData.previousAttempts === 'once' ? 'checked' : ''}>
-                            <span>Oui, une fois</span>
-                        </label>
-                        <label class="radio-item">
-                            <input type="radio" name="previousAttempts" value="few" ${state.formData.previousAttempts === 'few' ? 'checked' : ''}>
-                            <span>Oui, quelques fois (2-3 tentatives)</span>
-                        </label>
-                        <label class="radio-item">
-                            <input type="radio" name="previousAttempts" value="many" ${state.formData.previousAttempts === 'many' ? 'checked' : ''}>
-                            <span>Oui, plusieurs fois (4+ tentatives)</span>
-                        </label>
-                    </div>
-                </div>
-                
-                <div class="question-group">
-                    <label>Si vous avez déjà essayé, qu'est-ce qui a causé la rechute ?</label>
-                    <span class="hint">Comprendre les échecs précédents aide à éviter de les répéter</span>
-                    <textarea id="failureReasons" placeholder="Décrivez ce qui s'est passé lors de vos tentatives précédentes...">${state.formData.failureReasons}</textarea>
-                </div>
-            `;
-        }
-
-        // Étape 5: Situations de consommation
-        function renderStep5() {
-            const situationOptions = [
-                { value: 'morning', label: '☀️ Au réveil', desc: 'Cigarette du matin' },
-                { value: 'coffee', label: '☕ Avec le café', desc: 'Rituel café-cigarette' },
-                { value: 'stress', label: '😰 En situation de stress', desc: 'Pour me calmer' },
-                { value: 'phone', label: '📱 Au téléphone', desc: 'En parlant' },
-                { value: 'car', label: '🚗 En voiture', desc: 'Pendant les trajets' },
-                { value: 'alcohol', label: '🍷 Avec l\'alcool', desc: 'En soirée' },
-                { value: 'break', label: '⏸️ Pendant les pauses', desc: 'Au travail' },
-                { value: 'meals', label: '🍽️ Après les repas', desc: 'Digestif' }
-            ];
-            
-            return `
-                <h2 class="section-title">Vos situations de consommation</h2>
-                
-                <div class="info-box">
-                    <h4>🎯 Identifier les déclencheurs</h4>
-                    <p>Connaître précisément quand et pourquoi vous fumez permet de préparer des stratégies adaptées à chaque situation.</p>
-                </div>
-                
-                <div class="question-group">
-                    <label>Dans quelles situations fumez-vous le plus ? (plusieurs choix possibles)</label>
-                    <div class="checkbox-grid">
-                        ${situationOptions.map(option => `
-                            <div class="checkbox-item">
-                                <input type="checkbox" id="situation_${option.value}" value="${option.value}"
-                                    ${state.formData.smokingSituations.includes(option.value) ? 'checked' : ''}>
-                                <div>
-                                    <strong>${option.label}</strong>
-                                    <div style="font-size: 0.85rem; color: #64748b; margin-top: 5px;">${option.desc}</div>
-                                </div>
-                            </div>
-                        `).join('')}
-                    </div>
-                </div>
-                
-                <div class="question-group">
-                    <label>Quelles émotions déclenchent le plus l'envie de fumer ?</label>
-                    <span class="hint">Ex: stress, ennui, colère, tristesse, joie, etc.</span>
-                    <textarea id="emotionalTriggers" placeholder="Décrivez les émotions qui vous poussent à fumer...">${state.formData.emotionalTriggers}</textarea>
-                </div>
-                
-                <div class="question-group">
-                    <label>Fumez-vous plutôt seul(e) ou en société ?</label>
-                    <div class="radio-group">
-                        <label class="radio-item">
-                            <input type="radio" name="socialContext" value="alone" ${state.formData.socialContext === 'alone' ? 'checked' : ''}>
-                            <span>Principalement seul(e)</span>
-                        </label>
-                        <label class="radio-item">
-                            <input type="radio" name="socialContext" value="social" ${state.formData.socialContext === 'social' ? 'checked' : ''}>
-                            <span>Principalement en société</span>
-                        </label>
-                        <label class="radio-item">
-                            <input type="radio" name="socialContext" value="both" ${state.formData.socialContext === 'both' ? 'checked' : ''}>
-                            <span>Les deux de manière équivalente</span>
-                        </label>
-                    </div>
-                </div>
-                
-                <div class="question-group">
-                    <label>Avez-vous des rituels particuliers associés à la cigarette ?</label>
-                    <span class="hint">Ex: café du matin, pause de 10h, après le déjeuner, etc.</span>
-                    <textarea id="rituals" placeholder="Décrivez vos rituels quotidiens liés au tabac...">${state.formData.rituals}</textarea>
-                </div>
-            `;
-        }
-
-        // Étape 6: Santé et bien-être
-        function renderStep6() {
-            const healthOptions = [
-                { value: 'breath', label: '🫁 Essoufflement', desc: 'Difficultés respiratoires' },
-                { value: 'cough', label: '😷 Toux chronique', desc: 'Toux du fumeur' },
-                { value: 'fatigue', label: '😴 Fatigue', desc: 'Manque d\'énergie' },
-                { value: 'throat', label: '🗣️ Irritations gorge', desc: 'Mal de gorge fréquent' },
-                { value: 'skin', label: '👤 Problèmes de peau', desc: 'Vieillissement cutané' },
-                { value: 'cardio', label: '❤️ Problèmes cardiovasculaires', desc: 'Palpitations, tension' }
-            ];
-            
-            return `
-                <h2 class="section-title">Santé et bien-être</h2>
-                
-                <div class="info-box">
-                    <h4>❤️ Votre santé est précieuse</h4>
-                    <p>Ces informations permettent d'identifier les bénéfices santé que vous ressentirez rapidement après l'arrêt.</p>
-                </div>
-                
-                <div class="question-group">
-                    <label>Ressentez-vous actuellement des effets du tabac sur votre santé ? (plusieurs choix possibles)</label>
-                    <div class="checkbox-grid">
-                        ${healthOptions.map(option => `
-                            <div class="checkbox-item">
-                                <input type="checkbox" id="health_${option.value}" value="${option.value}"
-                                    ${state.formData.healthConcerns.includes(option.value) ? 'checked' : ''}>
-                                <div>
-                                    <strong>${option.label}</strong>
-                                    <div style="font-size: 0.85rem; color: #64748b; margin-top: 5px;">${option.desc}</div>
-                                </div>
-                            </div>
-                        `).join('')}
-                    </div>
-                </div>
-                
-                <div class="question-group">
-                    <label>Décrivez les symptômes physiques que vous ressentez</label>
-                    <span class="hint">Soyez précis - cela aide à mesurer les progrès après l'arrêt</span>
-                    <textarea id="physicalSymptoms" placeholder="Ex: J'ai du mal à monter les escaliers sans m'essouffler, je tousse le matin...">${state.formData.physicalSymptoms}</textarea>
-                </div>
-                
-                <div class="question-group">
-                    <label>Votre santé est-elle une motivation importante pour arrêter ?</label>
-                    <div class="radio-group">
-                        <label class="radio-item">
-                            <input type="radio" name="healthMotivation" value="primary" ${state.formData.healthMotivation === 'primary' ? 'checked' : ''}>
-                            <span>Oui, c'est ma motivation principale</span>
-                        </label>
-                        <label class="radio-item">
-                            <input type="radio" name="healthMotivation" value="important" ${state.formData.healthMotivation === 'important' ? 'checked' : ''}>
-                            <span>Oui, c'est important mais pas la seule raison</span>
-                        </label>
-                        <label class="radio-item">
-                            <input type="radio" name="healthMotivation" value="secondary" ${state.formData.healthMotivation === 'secondary' ? 'checked' : ''}>
-                            <span>Non, j'ai d'autres motivations plus fortes</span>
-                        </label>
-                    </div>
-                </div>
-                
-                <div class="question-group">
-                    <label>Avez-vous des problèmes de santé existants ou des antécédents médicaux ?</label>
-                    <span class="hint">Optionnel - Ces informations restent confidentielles</span>
-                    <textarea id="medicalHistory" placeholder="Ex: asthme, diabète, problèmes cardiaques, etc.">${state.formData.medicalHistory}</textarea>
-                </div>
-            `;
-        }
-
-        // Étape 7: Vision et objectifs
-        function renderStep7() {
-            return `
-                <h2 class="section-title">Votre vision du futur</h2>
-                
-                <div class="info-box">
-                    <h4>🌟 Visualiser pour réussir</h4>
-                    <p>Se projeter positivement dans l'avenir renforce la motivation et facilite le changement. Prenez le temps d'imaginer votre vie de non-fumeur.</p>
-                </div>
-                
-                <div class="question-group">
-                    <label>Comment imaginez-vous votre vie de non-fumeur dans 6 mois ?</label>
-                    <span class="hint">Soyez le plus précis possible - imaginez les détails de votre quotidien</span>
-                    <textarea id="futureVision" placeholder="Décrivez une journée type dans 6 mois en tant que non-fumeur...">${state.formData.futureVision}</textarea>
-                </div>
-                
-                <div class="question-group">
-                    <label>Quels sont vos objectifs à court terme ? (1 mois)</label>
-                    <span class="hint">Ex: Retrouver mon souffle, économiser 150€, ne plus tousser le matin...</span>
-                    <textarea id="shortTermGoals" placeholder="Listez 3-5 objectifs que vous voulez atteindre dans le mois...">${state.formData.shortTermGoals}</textarea>
-                </div>
-                
-                <div class="question-group">
-                    <label>Quels sont vos objectifs à long terme ? (1 an)</label>
-                    <span class="hint">Ex: Faire un semi-marathon, voyager avec l'argent économisé, être un modèle pour mes enfants...</span>
-                    <textarea id="longTermGoals" placeholder="Listez vos objectifs pour l'année à venir...">${state.formData.longTermGoals}</textarea>
-                </div>
-                
-                <div class="question-group">
-                    <label>Comment saurez-vous que vous avez réussi ?</label>
-                    <span class="hint">Quels seront les signes concrets de votre réussite ?</span>
-                    <textarea id="successCriteria" placeholder="Ex: Je n'aurai plus pensé à la cigarette pendant une semaine complète...">${state.formData.successCriteria}</textarea>
-                </div>
-            `;
-        }
-
-        // Étape 8: Engagement et ressources
-        function renderStep8() {
-            return `
-                <h2 class="section-title">Engagement et ressources</h2>
-                
-                <div class="info-box">
-                    <h4>🎯 Prêt(e) pour le changement ?</h4>
-                    <p>Cette dernière étape évalue votre engagement et identifie les ressources disponibles pour vous soutenir.</p>
-                </div>
-                
-                <div class="question-group">
-                    <label>Sur une échelle de 1 à 10, à quel point êtes-vous prêt(e) à arrêter maintenant ?</label>
-                    <span class="hint">1 = Pas du tout prêt(e) | 10 = Totalement prêt(e) et déterminé(e)</span>
-                    <div class="scale-selector">
-                        ${Array.from({length: 10}, (_, i) => i + 1).map(num => `
-                            <div class="scale-option ${state.formData.commitmentLevel == num ? 'selected' : ''}" 
-                                 onclick="selectScale('commitmentLevel', ${num})">
-                                ${num}
-                            </div>
-                        `).join('')}
-                    </div>
-                </div>
-                
-                <div class="question-group">
-                    <label>Qui peut vous soutenir dans cette démarche ?</label>
-                    <span class="hint">Famille, amis, collègues, professionnels de santé...</span>
-                    <textarea id="supportSystem" placeholder="Listez les personnes qui peuvent vous encourager et vous soutenir...">${state.formData.supportSystem}</textarea>
-                </div>
-                
-                <div class="question-group">
-                    <label>Seriez-vous intéressé(e) par une substitution nicotinique ?</label>
-                    <span class="hint">Patchs, gommes, inhalateurs peuvent faciliter le sevrage</span>
-                    <div class="radio-group">
-                        <label class="radio-item">
-                            <input type="radio" name="nicotineSubstitution" value="yes" 
-                                ${state.formData.nicotineSubstitution === 'yes' ? 'checked' : ''}>
-                            <span>Oui, je suis intéressé(e)</span>
-                        </label>
-                        <label class="radio-item">
-                            <input type="radio" name="nicotineSubstitution" value="maybe"
-                                ${state.formData.nicotineSubstitution === 'maybe' ? 'checked' : ''}>
-                            <span>Peut-être, j'aimerais en savoir plus</span>
-                        </label>
-                        <label class="radio-item">
-                            <input type="radio" name="nicotineSubstitution" value="no"
-                                ${state.formData.nicotineSubstitution === 'no' ? 'checked' : ''}>
-                            <span>Non, je préfère sans substitution</span>
-                        </label>
-                    </div>
-                </div>
-                
-                <div class="question-group">
-                    <label>Avez-vous défini une date d'arrêt ?</label>
-                    <div class="radio-group">
-                        <label class="radio-item">
-                            <input type="radio" name="readyToQuit" value="now" ${state.formData.readyToQuit === 'now' ? 'checked' : ''}>
-                            <span>Je veux arrêter immédiatement</span>
-                        </label>
-                        <label class="radio-item">
-                            <input type="radio" name="readyToQuit" value="soon" ${state.formData.readyToQuit === 'soon' ? 'checked' : ''}>
-                            <span>Je veux arrêter dans les prochains jours</span>
-                        </label>
-                        <label class="radio-item">
-                            <input type="radio" name="readyToQuit" value="date" ${state.formData.readyToQuit === 'date' ? 'checked' : ''}>
-                            <span>J'ai une date précise en tête</span>
-                        </label>
-                    </div>
-                </div>
-                
-                <div class="question-group">
-                    <label>Si vous avez une date précise, laquelle ?</label>
-                    <span class="hint">Optionnel</span>
-                    <input type="date" id="quitDate" value="${state.formData.quitDate}">
-                </div>
-                
-                <div class="info-box" style="margin-top: 40px; background: linear-gradient(135deg, rgba(16, 185, 129, 0.1) 0%, rgba(5, 150, 105, 0.1) 100%); border-left-color: #10b981;">
-                    <h4 style="color: #10b981;">🎉 Félicitations pour votre engagement !</h4>
-                    <p>Vous avez pris le temps de réfléchir profondément à votre relation au tabac. Cette démarche est déjà un premier pas vers le succès. Vos réponses vont permettre de créer un accompagnement 100% personnalisé.</p>
-                </div>
-            `;
-        }
-
-        // Liste des exercices (identique)
-        function renderExercises() {
-            return `
-                <div class="header">
-                    <h1>🧘 Exercices d'Autohypnose</h1>
-                    <p>9 exercices pour vous accompagner</p>
-                </div>
-                
-                <div class="container">
-                    <div class="card">
-                        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 30px; flex-wrap: wrap; gap: 15px;">
-                            <button class="btn btn-secondary" onclick="goHome()">← Retour à l'accueil</button>
-                            <button class="btn btn-primary" onclick="goToGuidedSession()">🎧 Séance guidée (30 min)</button>
-                        </div>
-                        
-                        <div class="exercise-grid">
-                            ${exercises.map(ex => `
-                                <div class="exercise-card" onclick="openExercise(${ex.id})">
-                                    <div class="exercise-icon">${ex.icon}</div>
-                                    <h3>${ex.title}</h3>
-                                    <div class="exercise-meta">
-                                        <span>📁 ${ex.category}</span>
-                                        <span>⏱️ ${ex.duration}</span>
-                                    </div>
-                                    <p style="color: #64748b; font-size: 0.95rem; line-height: 1.5;">${ex.description}</p>
-                                    ${state.completedExercises.includes(ex.id) ? '<div style="margin-top: 10px; color: #10b981;">✅ Complété</div>' : ''}
-                                </div>
-                            `).join('')}
-                        </div>
-                    </div>
-                </div>
-            `;
-        }
-
-        // Séance guidée
-        function renderGuidedSession() {
-            return `
-                <div class="header">
-                    <h1>🎧 ${guidedSession.title}</h1>
-                    <p>${guidedSession.duration} - 6 étapes</p>
-                </div>
-                
-                <div class="container">
-                    <div class="card">
-                        <button class="btn btn-secondary" onclick="goToExercises()" style="margin-bottom: 30px;">← Retour aux exercices</button>
-                        
-                        <div class="audio-player">
-                            <div class="breathing-circle"></div>
-                            <h3 style="margin: 20px 0; text-align: center; color: #667eea;">🎧 Séance d'Hypnose Guidée</h3>
-                            
-                            ${audioUrls[0] ? `
-                                <div style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); padding: 30px; border-radius: 20px; box-shadow: 0 10px 30px rgba(102, 126, 234, 0.3);">
-                                    
-                                    <div style="text-align: center; color: white; margin-bottom: 20px;">
-                                        <p style="margin: 0; font-size: 1.1rem; font-weight: 600;">Durée : 30 minutes</p>
-                                        <p style="margin: 10px 0 0 0; opacity: 0.9; font-size: 0.95rem;">Installez-vous confortablement dans un endroit calme</p>
-                                    </div>
-                                    
-                                    <audio 
-                                        id="seance-guidee-audio"
-                                        controls 
-                                        style="width: 100%; height: 50px; border-radius: 15px; outline: none; filter: drop-shadow(0 5px 15px rgba(0,0,0,0.2));"
-                                        preload="metadata">
-                                        <source src="${audioUrls[0]}" type="audio/mpeg">
-                                        Votre navigateur ne supporte pas l'élément audio.
-                                    </audio>
-                                    
-                                    <div style="text-align: center; margin-top: 20px; color: white; opacity: 0.9; font-size: 0.9rem; line-height: 1.6;">
-                                        💡 Conseil : Utilisez des écouteurs pour une meilleure immersion<br>
-                                        ⏸️ Vous pouvez mettre sur pause et reprendre à tout moment
-                                    </div>
-                                </div>
-                            ` : `
-                                <div class="audio-placeholder">
-                                    <p>🎙️ L'audio de la séance guidée complète sera disponible ici</p>
-                                    <p style="margin-top: 10px; font-size: 0.9rem;">Vous pourrez écouter une séance d'hypnose de 30 minutes guidée par la voix apaisante du thérapeute</p>
-                                </div>
-                            `}
-                        </div>
-                        
-                        <div style="margin-top: 40px;">
-                            <h3 style="font-family: 'Playfair Display', serif; margin-bottom: 20px;">Les 6 étapes de la séance</h3>
-                            ${guidedSession.steps.map((step, index) => `
-                                <div style="padding: 20px; background: #f8fafc; border-radius: 10px; margin-bottom: 15px;">
-                                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
-                                        <h4 style="color: #667eea;">${index + 1}. ${step.title}</h4>
-                                        <span style="color: #64748b; font-size: 0.9rem;">⏱️ ${step.duration}</span>
-                                    </div>
-                                    <p style="color: #64748b; line-height: 1.6;">${step.text}</p>
-                                </div>
-                            `).join('')}
-                        </div>
-                    </div>
-                </div>
-            `;
-        }
-
-        // Dashboard
-        function renderDashboard() {
-            const daysSinceQuit = state.quitDate ? Math.floor((new Date() - state.quitDate) / (1000 * 60 * 60 * 24)) : 0;
-            const cigarettesAvoided = daysSinceQuit * (parseInt(state.formData.cigarettesPerDay) || 0);
-            const moneySaved = cigarettesAvoided * 0.5;
-            
-            return `
-                <div class="header">
-                    <h1>📊 Mon Tableau de Bord</h1>
-                    <p>Bienvenue ${state.formData.firstName || 'cher(e) participant(e)'} !</p>
-                </div>
-                
-                <div class="container">
-                    <div class="card">
-                        <h2 style="font-family: 'Playfair Display', serif; margin-bottom: 30px;">Vos Statistiques</h2>
-                        
-                        <div class="stats-grid">
-                            <div class="stat-card">
-                                <div class="stat-value">${daysSinceQuit}</div>
-                                <div class="stat-label">Jours sans cigarette</div>
-                            </div>
-                            <div class="stat-card">
-                                <div class="stat-value">${cigarettesAvoided}</div>
-                                <div class="stat-label">Cigarettes évitées</div>
-                            </div>
-                            <div class="stat-card">
-                                <div class="stat-value">${moneySaved.toFixed(0)}€</div>
-                                <div class="stat-label">Économies réalisées</div>
-                            </div>
-                        </div>
-                        
-                        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin: 40px 0;">
-                            <button class="btn btn-primary" onclick="goToGuidedSession()">🎧 Séance guidée</button>
-                            <button class="btn btn-secondary" onclick="goToExercises()">🧘 Exercices</button>
-                        </div>
-                        
-                        <div style="margin-top: 40px;">
-                            <h3 style="font-family: 'Playfair Display', serif; margin-bottom: 20px;">Exercices complétés</h3>
-                            ${state.completedExercises.length > 0 ? `
-                                <div style="display: flex; flex-direction: column; gap: 10px;">
-                                    ${state.completedExercises.map(id => {
-                                        const ex = exercises.find(e => e.id === id);
-                                        return `
-                                            <div style="padding: 15px; background: #f8fafc; border-radius: 10px; display: flex; justify-content: space-between; align-items: center;">
-                                                <div style="display: flex; align-items: center; gap: 15px;">
-                                                    <span style="font-size: 1.5rem;">${ex.icon}</span>
-                                                    <span>${ex.title}</span>
-                                                </div>
-                                                <span style="color: #10b981;">✅</span>
-                                            </div>
-                                        `;
-                                    }).join('')}
-                                </div>
-                            ` : '<p style="color: #64748b; font-style: italic;">Aucun exercice complété pour le moment. Commencez votre pratique !</p>'}
-                        </div>
-                        
-                        <div style="margin-top: 40px; text-align: center;">
-                            <button class="btn btn-secondary" onclick="goHome()">← Retour à l'accueil</button>
-                        </div>
-                    </div>
-                </div>
-            `;
-        }
-
-        // Navigation
-        function goHome() {
-            state.currentView = 'home';
-            render();
-            window.scrollTo(0, 0);
-        }
+        let currentQuestion = 0;
+        let answers = [];
+        let userProfile = {};
 
         function startQuestionnaire() {
-            state.currentView = 'questionnaire';
-            state.currentStep = 1;
-            render();
-            window.scrollTo(0, 0);
+            document.getElementById('home-screen').style.display = 'none';
+            document.getElementById('questionnaire-screen').style.display = 'block';
+            currentQuestion = 0;
+            answers = [];
+            showQuestion();
         }
 
-        function goToExercises() {
-            state.currentView = 'exercises';
-            render();
-            window.scrollTo(0, 0);
-        }
-
-        function goToGuidedSession() {
-            state.currentView = 'guidedSession';
-            render();
-            window.scrollTo(0, 0);
-        }
-
-        function goToDashboard() {
-            state.currentView = 'dashboard';
-            render();
-            window.scrollTo(0, 0);
-        }
-
-        // Gestion du questionnaire
-        function saveCurrentStep() {
-            switch(state.currentStep) {
-                case 1:
-                    state.formData.firstName = document.getElementById('firstName')?.value || '';
-                    state.formData.age = document.getElementById('age')?.value || '';
-                    state.formData.email = document.getElementById('email')?.value || '';
-                    state.formData.phone = document.getElementById('phone')?.value || '';
-                    state.formData.cigarettesPerDay = document.getElementById('cigarettesPerDay')?.value || '';
-                    state.formData.yearsSmoking = document.getElementById('yearsSmoking')?.value || '';
-                    state.formData.startAge = document.getElementById('startAge')?.value || '';
-                    break;
-                case 2:
-                    state.formData.firstCigaretteContext = document.getElementById('firstCigaretteContext')?.value || '';
-                    const familyRadio = document.querySelector('input[name="familySmoking"]:checked');
-                    state.formData.familySmoking = familyRadio?.value || '';
-                    state.formData.smokingEvolution = document.getElementById('smokingEvolution')?.value || '';
-                    const typeRadio = document.querySelector('input[name="typeOfSmoker"]:checked');
-                    state.formData.typeOfSmoker = typeRadio?.value || '';
-                    break;
-                case 3:
-                    state.formData.primaryMotivations = Array.from(document.querySelectorAll('input[type="checkbox"]:checked'))
-                        .map(cb => cb.value)
-                        .filter(v => ['health', 'family', 'money', 'freedom', 'performance', 'image'].includes(v));
-                    state.formData.triggerEvent = document.getElementById('triggerEvent')?.value || '';
-                    state.formData.personalGoals = document.getElementById('personalGoals')?.value || '';
-                    break;
-                case 4:
-                    state.formData.mainObstacles = Array.from(document.querySelectorAll('input[id^="obstacle_"]:checked'))
-                        .map(cb => cb.value);
-                    state.formData.specificFears = document.getElementById('specificFears')?.value || '';
-                    const attemptsRadio = document.querySelector('input[name="previousAttempts"]:checked');
-                    state.formData.previousAttempts = attemptsRadio?.value || '';
-                    state.formData.failureReasons = document.getElementById('failureReasons')?.value || '';
-                    break;
-                case 5:
-                    state.formData.smokingSituations = Array.from(document.querySelectorAll('input[id^="situation_"]:checked'))
-                        .map(cb => cb.value);
-                    state.formData.emotionalTriggers = document.getElementById('emotionalTriggers')?.value || '';
-                    const socialRadio = document.querySelector('input[name="socialContext"]:checked');
-                    state.formData.socialContext = socialRadio?.value || '';
-                    state.formData.rituals = document.getElementById('rituals')?.value || '';
-                    break;
-                case 6:
-                    state.formData.healthConcerns = Array.from(document.querySelectorAll('input[id^="health_"]:checked'))
-                        .map(cb => cb.value);
-                    state.formData.physicalSymptoms = document.getElementById('physicalSymptoms')?.value || '';
-                    const healthMotivRadio = document.querySelector('input[name="healthMotivation"]:checked');
-                    state.formData.healthMotivation = healthMotivRadio?.value || '';
-                    state.formData.medicalHistory = document.getElementById('medicalHistory')?.value || '';
-                    break;
-                case 7:
-                    state.formData.futureVision = document.getElementById('futureVision')?.value || '';
-                    state.formData.shortTermGoals = document.getElementById('shortTermGoals')?.value || '';
-                    state.formData.longTermGoals = document.getElementById('longTermGoals')?.value || '';
-                    state.formData.successCriteria = document.getElementById('successCriteria')?.value || '';
-                    break;
-                case 8:
-                    state.formData.supportSystem = document.getElementById('supportSystem')?.value || '';
-                    const subsRadio = document.querySelector('input[name="nicotineSubstitution"]:checked');
-                    state.formData.nicotineSubstitution = subsRadio?.value || '';
-                    const readyRadio = document.querySelector('input[name="readyToQuit"]:checked');
-                    state.formData.readyToQuit = readyRadio?.value || '';
-                    state.formData.quitDate = document.getElementById('quitDate')?.value || '';
-                    break;
-            }
-        }
-
-        function nextStep() {
-            saveCurrentStep();
-            saveData(); // Sauvegarder les données
-            if (state.currentStep < state.totalSteps) {
-                state.currentStep++;
-                render();
-                window.scrollTo(0, 0);
-            }
-        }
-
-        function previousStep() {
-            saveCurrentStep();
-            saveData(); // Sauvegarder les données
-            if (state.currentStep > 1) {
-                state.currentStep--;
-                render();
-                window.scrollTo(0, 0);
-            }
-        }
-
-        function selectScale(field, value) {
-            state.formData[field] = value.toString();
-            render();
-        }
-
-        function submitQuestionnaire() {
-            saveCurrentStep();
+        function showQuestion() {
+            const container = document.getElementById('questions-container');
+            const question = questions[currentQuestion];
             
-            // SAUVEGARDER LES DONNÉES
-            if (state.formData.quitDate && !state.quitDate) {
-                state.quitDate = state.formData.quitDate;
-            }
-            saveData();
-            
-            // Créer l'email avec toutes les données
-            const emailBody = `
-QUESTIONNAIRE PASS ANTI TABAC - PROTOCOLE COMPLET
-═══════════════════════════════════════════════════
-
-PARTICIPANT : ${state.formData.firstName}
-Date : ${new Date().toLocaleString('fr-FR')}
-
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-📋 1. INFORMATIONS DE BASE
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-
-Prénom : ${state.formData.firstName}
-Âge : ${state.formData.age} ans
-Email : ${state.formData.email || 'Non renseigné'}
-Téléphone : ${state.formData.phone || 'Non renseigné'}
-
-Consommation actuelle :
-- Cigarettes par jour : ${state.formData.cigarettesPerDay}
-- Années de tabagisme : ${state.formData.yearsSmoking} ans
-- Âge de début : ${state.formData.startAge} ans
-
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-📖 2. HISTOIRE TABAGIQUE
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-
-Contexte de la première cigarette :
-${state.formData.firstCigaretteContext}
-
-Fumeurs dans l'entourage : ${state.formData.familySmoking}
-
-Évolution de la consommation :
-${state.formData.smokingEvolution}
-
-Type de fumeur : ${state.formData.typeOfSmoker}
-
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-💪 3. MOTIVATIONS
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-
-Motivations principales : ${state.formData.primaryMotivations.join(', ')}
-Intensité de la motivation : ${state.formData.motivationIntensity}/10
-
-Événement déclencheur :
-${state.formData.triggerEvent}
-
-Objectifs personnels :
-${state.formData.personalGoals}
-
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-🚧 4. OBSTACLES ET CRAINTES
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-
-Obstacles identifiés : ${state.formData.mainObstacles.join(', ')}
-
-Craintes spécifiques :
-${state.formData.specificFears}
-
-Tentatives précédentes : ${state.formData.previousAttempts}
-
-Raisons des échecs passés :
-${state.formData.failureReasons}
-
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-🎯 5. SITUATIONS DE CONSOMMATION
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-
-Situations de consommation : ${state.formData.smokingSituations.join(', ')}
-
-Déclencheurs émotionnels :
-${state.formData.emotionalTriggers}
-
-Contexte social : ${state.formData.socialContext}
-
-Rituels associés :
-${state.formData.rituals}
-
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-❤️ 6. SANTÉ ET BIEN-ÊTRE
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-
-Préoccupations santé : ${state.formData.healthConcerns.join(', ')}
-
-Symptômes physiques actuels :
-${state.formData.physicalSymptoms}
-
-Santé comme motivation : ${state.formData.healthMotivation}
-
-Antécédents médicaux :
-${state.formData.medicalHistory}
-
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-🌟 7. VISION ET OBJECTIFS
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-
-Vision à 6 mois :
-${state.formData.futureVision}
-
-Objectifs court terme (1 mois) :
-${state.formData.shortTermGoals}
-
-Objectifs long terme (1 an) :
-${state.formData.longTermGoals}
-
-Critères de réussite :
-${state.formData.successCriteria}
-
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-🎯 8. ENGAGEMENT ET RESSOURCES
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-
-Niveau d'engagement : ${state.formData.commitmentLevel}/10
-
-Système de soutien :
-${state.formData.supportSystem}
-
-Substitution nicotinique : ${state.formData.nicotineSubstitution}
-Prêt à arrêter : ${state.formData.readyToQuit}
-Date d'arrêt souhaitée : ${state.formData.quitDate || 'Non définie'}
-
-═══════════════════════════════════════════════════
-FIN DU QUESTIONNAIRE
-═══════════════════════════════════════════════════
-            `.trim();
-            
-            // Créer le lien mailto proprement encodé
-            const subject = `Questionnaire Pass Anti Tabac - ${state.formData.firstName}`;
-            const mailtoLink = `mailto:hypnosejoffrey@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(emailBody)}`;
-            
-            // Ouvrir le client email
-            window.location.href = mailtoLink;
-            
-            // Définir la date d'arrêt si pas déjà définie
-            if (!state.quitDate && state.formData.quitDate) {
-                state.quitDate = state.formData.quitDate;
-            } else if (!state.quitDate) {
-                state.quitDate = new Date().toISOString();
-            }
-            
-            // Sauvegarder une dernière fois
-            saveData();
-            
-            // Afficher message de confirmation
-            alert('✅ Questionnaire terminé !\n\n📧 Un email va s\'ouvrir dans votre client de messagerie.\n\n💾 Vos données ont été sauvegardées localement.');
-            
-            // Aller au dashboard après un court délai
-            setTimeout(() => {
-                goToDashboard();
-            }, 2000);
-        }
-
-        // Ouvrir un exercice dans une modale
-        function openExercise(id) {
-            const exercise = exercises.find(ex => ex.id === id);
-            if (!exercise) return;
-            
-            const modalHTML = `
-                <div class="modal" id="exerciseModal" style="display: block;">
-                    <div class="modal-content">
-                        <button class="modal-close" onclick="closeModal()">&times;</button>
-                        
-                        <div style="text-align: center; margin-bottom: 30px;">
-                            <div style="font-size: 3rem; margin-bottom: 15px;">${exercise.icon}</div>
-                            <h2 style="font-family: 'Playfair Display', serif; color: #667eea; margin-bottom: 10px;">${exercise.title}</h2>
-                            <div style="display: flex; justify-content: center; gap: 20px; color: #64748b;">
-                                <span>📁 ${exercise.category}</span>
-                                <span>⏱️ ${exercise.duration}</span>
-                            </div>
-                        </div>
-                        
-                        <div style="background: #f8fafc; padding: 20px; border-radius: 15px; margin-bottom: 30px;">
-                            <p style="line-height: 1.6;">${exercise.description}</p>
-                        </div>
-                        
-                        <div class="audio-player">
-                            ${audioUrls[exercise.id] ? `
-                                <div style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); padding: 25px; border-radius: 20px; box-shadow: 0 8px 25px rgba(102, 126, 234, 0.25);">
-                                    
-                                    <div style="text-align: center; color: white; margin-bottom: 15px;">
-                                        <h4 style="margin: 0 0 8px 0; font-size: 1.1rem;">🎧 Audio guidé de l'exercice</h4>
-                                        <p style="margin: 0; opacity: 0.9; font-size: 0.95rem;">Durée : ${exercise.duration}</p>
-                                    </div>
-                                    
-                                    <audio 
-                                        controls 
-                                        style="width: 100%; height: 45px; border-radius: 12px; outline: none; filter: drop-shadow(0 4px 12px rgba(0,0,0,0.2));"
-                                        preload="metadata">
-                                        <source src="${audioUrls[exercise.id]}" type="audio/mpeg">
-                                        Votre navigateur ne supporte pas l'élément audio.
-                                    </audio>
-                                    
-                                    <div style="text-align: center; margin-top: 15px; color: white; opacity: 0.9; font-size: 0.85rem;">
-                                        💡 Installez-vous confortablement et appuyez sur lecture
-                                    </div>
-                                </div>
-                            ` : `
-                                <div class="audio-placeholder">
-                                    <p>🎙️ Audio guidé pour cet exercice sera bientôt disponible</p>
-                                    <p style="margin-top: 10px; font-size: 0.9rem;">Un enregistrement vous guidera pas à pas dans cet exercice</p>
-                                </div>
-                            `}
-                        </div>
-                        
-                        <h3 style="font-family: 'Playfair Display', serif; margin: 30px 0 20px;">Étapes de l'exercice</h3>
-                        <ol style="line-height: 2; padding-left: 20px;">
-                            ${exercise.steps.map(step => `<li>${step}</li>`).join('')}
-                        </ol>
-                        
-                        <div style="text-align: center; margin-top: 40px;">
-                            <button class="btn btn-primary" onclick="markAsCompleted(${exercise.id})">
-                                ${state.completedExercises.includes(exercise.id) ? '✅ Complété' : 'Marquer comme complété ✓'}
-                            </button>
-                        </div>
+            container.innerHTML = `
+                <div class="question-card">
+                    <h3>${question.question}</h3>
+                    <div class="radio-group">
+                        ${question.options.map((opt, idx) => `
+                            <label class="radio-option">
+                                <input type="radio" name="q${currentQuestion}" value="${opt.value}" 
+                                       ${answers[currentQuestion] === opt.value ? 'checked' : ''}>
+                                ${opt.text}
+                            </label>
+                        `).join('')}
                     </div>
                 </div>
             `;
+
+            // Progress
+            const progress = ((currentQuestion + 1) / questions.length) * 100;
+            document.getElementById('progress-fill').style.width = progress + '%';
+            document.getElementById('progress-text').textContent = `Question ${currentQuestion + 1}/${questions.length}`;
+
+            // Boutons
+            document.getElementById('prev-btn').style.display = currentQuestion > 0 ? 'inline-block' : 'none';
+            document.getElementById('next-btn').textContent = currentQuestion === questions.length - 1 ? 'Voir mes résultats' : 'Suivant →';
+
+            // Event listeners
+            document.querySelectorAll('input[type="radio"]').forEach(radio => {
+                radio.addEventListener('change', (e) => {
+                    answers[currentQuestion] = parseInt(e.target.value);
+                });
+            });
+        }
+
+        function nextQuestion() {
+            if (!answers[currentQuestion]) {
+                alert('Veuillez sélectionner une réponse');
+                return;
+            }
+
+            if (currentQuestion < questions.length - 1) {
+                currentQuestion++;
+                showQuestion();
+            } else {
+                calculateResults();
+            }
+        }
+
+        function previousQuestion() {
+            if (currentQuestion > 0) {
+                currentQuestion--;
+                showQuestion();
+            }
+        }
+
+        function calculateResults() {
+            const totalScore = answers.reduce((sum, val) => sum + val, 0);
+            const avgScore = totalScore / answers.length;
+
+            // Calcul profil
+            let profile = "";
+            let addiction = "";
+            let motivation = "";
+            let lifeExpectancy = 78; // Espérance de vie de base
+            let yearsLost = 0;
+
+            // Déterminer le niveau de dépendance
+            if (avgScore < 3) {
+                addiction = "Faible";
+                yearsLost = 2;
+            } else if (avgScore < 5) {
+                addiction = "Modérée";
+                yearsLost = 5;
+            } else if (avgScore < 7) {
+                addiction = "Forte";
+                yearsLost = 10;
+            } else {
+                addiction = "Très forte";
+                yearsLost = 15;
+            }
+
+            // Profil selon les réponses
+            const cigarettesPerDay = answers[1];
+            const morningSmoke = answers[2];
             
-            document.body.insertAdjacentHTML('beforeend', modalHTML);
+            if (cigarettesPerDay >= 7 && morningSmoke >= 7) {
+                profile = "Fumeur très dépendant";
+            } else if (cigarettesPerDay >= 5) {
+                profile = "Fumeur régulier";
+            } else if (morningSmoke >= 5) {
+                profile = "Fumeur du matin";
+            } else {
+                profile = "Fumeur occasionnel";
+            }
+
+            // Motivation
+            motivation = answers[4] >= 8 ? "Très motivé" : answers[4] >= 5 ? "Motivé" : "Motivation à renforcer";
+
+            userProfile = {
+                profile, addiction, motivation, totalScore,
+                lifeExpectancy: lifeExpectancy - yearsLost,
+                yearsLost,
+                cigarettesPerDay: questions[1].options[answers[1] - 1]?.text || "N/A",
+                yearsSmoking: questions[0].options[answers[0] - 1]?.text || "N/A"
+            };
+
+            showResults();
+        }
+
+        function showResults() {
+            document.getElementById('questionnaire-screen').style.display = 'none';
+            document.getElementById('results-screen').style.display = 'block';
+
+            const content = document.getElementById('results-content');
+            content.innerHTML = `
+                <div class="results-card">
+                    <h3>📊 Votre profil : ${userProfile.profile}</h3>
+                    
+                    <div class="stat-box">
+                        <p>Niveau de dépendance</p>
+                        <h4>${userProfile.addiction}</h4>
+                    </div>
+
+                    <div class="stat-box">
+                        <p>Votre motivation</p>
+                        <h4>${userProfile.motivation}</h4>
+                    </div>
+
+                    <div class="stat-box">
+                        <p>Consommation journalière</p>
+                        <h4>${userProfile.cigarettesPerDay}</h4>
+                    </div>
+
+                    <div class="stat-box">
+                        <p>Ancienneté</p>
+                        <h4>${userProfile.yearsSmoking}</h4>
+                    </div>
+
+                    <div class="warning-text">
+                        <strong>⚠️ Simulation de prise de conscience</strong><br>
+                        Espérance de vie estimée si vous continuez : <strong>${userProfile.lifeExpectancy} ans</strong><br>
+                        Années potentiellement perdues : <strong>${userProfile.yearsLost} ans</strong><br><br>
+                        <em>Cette estimation est une simulation éducative basée sur des statistiques générales. 
+                        Elle ne constitue pas un diagnostic médical mais vise à créer une prise de conscience.</em>
+                    </div>
+
+                    <div style="background: rgba(255,255,255,0.2); padding: 20px; border-radius: 10px; margin-top: 20px;">
+                        <h4>✅ La bonne nouvelle</h4>
+                        <p>En arrêtant maintenant, vous pouvez récupérer ces années et améliorer significativement votre qualité de vie !</p>
+                    </div>
+                </div>
+            `;
+        }
+
+        function sendResults() {
+            const email = document.getElementById('email-input').value;
+            if (!email || !email.includes('@')) {
+                alert('Veuillez entrer une adresse email valide');
+                return;
+            }
+
+            // Préparer les données
+            const data = {
+                email: email,
+                profile: userProfile,
+                date: new Date().toLocaleString('fr-FR')
+            };
+
+            // Simulation d'envoi (à remplacer par ton endpoint)
+            console.log('Données à envoyer:', data);
             
-            // Ajouter les event listeners pour le Wake Lock sur l'audio
-            setTimeout(() => {
-                const audioElement = document.querySelector('#exerciseModal audio');
-                if (audioElement) {
-                    // Activer Wake Lock quand l'audio commence
-                    audioElement.addEventListener('play', async () => {
-                        await requestWakeLock();
-                        console.log('🎵 Audio en lecture - Écran maintenu allumé');
-                    });
+            // Tu peux utiliser fetch pour envoyer à ton backend
+            // fetch('ton-endpoint', { method: 'POST', body: JSON.stringify(data) })
+
+            alert('✅ Vos résultats ont été envoyés ! Vous recevrez un suivi personnalisé par email.');
+        }
+
+        function showDashboard() {
+            document.getElementById('home-screen').style.display = 'none';
+            document.getElementById('questionnaire-screen').style.display = 'none';
+            document.getElementById('results-screen').style.display = 'none';
+            document.getElementById('dashboard-screen').style.display = 'block';
+        }
+
+        function openGuidedSession() {
+            const modal = document.getElementById('exercise-modal');
+            const content = document.getElementById('modal-content');
+            
+            content.innerHTML = `
+                <h2>🎧 Séance Guidée Complète</h2>
+                <p style="margin: 15px 0;">Durée : 24 minutes 22 secondes</p>
+                
+                <div class="audio-player">
+                    <div class="binaural-toggle">
+                        <label>
+                            <input type="checkbox" id="binaural-checkbox" checked> 
+                            🎵 Activer le son binaural (recommandé)
+                        </label>
+                    </div>
                     
-                    // Relâcher Wake Lock quand l'audio se termine ou est en pause
-                    audioElement.addEventListener('pause', async () => {
-                        await releaseWakeLock();
-                        console.log('⏸️ Audio en pause - Wake Lock relâché');
-                    });
+                    <audio id="main-audio" controls preload="metadata">
+                        <source src="${audioUrls[0]}" type="audio/mpeg">
+                    </audio>
                     
-                    audioElement.addEventListener('ended', async () => {
-                        await releaseWakeLock();
-                        console.log('✅ Audio terminé - Wake Lock relâché');
-                    });
+                    <audio id="binaural-audio" loop>
+                        <source src="audios/binaural-theta.mp3" type="audio/mpeg">
+                    </audio>
+                    
+                    <p style="color: white; margin-top: 15px; font-size: 0.9rem;">
+                        💡 Mettez vos écouteurs pour profiter pleinement du son binaural.<br>
+                        Le son binaural favorise une transe profonde (ondes Theta 4-7 Hz).
+                    </p>
+                </div>
+
+                <div style="background: #f8f9fa; padding: 20px; border-radius: 10px; margin: 20px 0;">
+                    <h4>📝 Recommandations :</h4>
+                    <ul style="margin: 10px 0; padding-left: 20px;">
+                        <li>Installez-vous confortablement</li>
+                        <li>Utilisez des écouteurs</li>
+                        <li>Assurez-vous de ne pas être dérangé</li>
+                        <li>Fermez les yeux pendant la séance</li>
+                    </ul>
+                </div>
+            `;
+
+            modal.style.display = 'block';
+
+            // Gestion du binaural
+            const mainAudio = document.getElementById('main-audio');
+            const binauralAudio = document.getElementById('binaural-audio');
+            const binauralCheckbox = document.getElementById('binaural-checkbox');
+
+            binauralAudio.volume = 0.3; // Volume plus bas pour le binaural
+
+            mainAudio.addEventListener('play', async () => {
+                await requestWakeLock();
+                if (binauralCheckbox.checked) {
+                    binauralAudio.play();
                 }
-            }, 100);
+            });
+
+            mainAudio.addEventListener('pause', () => {
+                binauralAudio.pause();
+                releaseWakeLock();
+            });
+
+            mainAudio.addEventListener('ended', () => {
+                binauralAudio.pause();
+                binauralAudio.currentTime = 0;
+                releaseWakeLock();
+            });
+
+            binauralCheckbox.addEventListener('change', (e) => {
+                if (e.target.checked && !mainAudio.paused) {
+                    binauralAudio.play();
+                } else {
+                    binauralAudio.pause();
+                }
+            });
+        }
+
+        function openExercise(id) {
+            const exercises = {
+                1: { title: "Retarder de 10 minutes", desc: "Technique comportementale simple" },
+                2: { title: "Fantasme de consommation", desc: "Visualisation mentale" },
+                3: { title: "Lettre de rupture", desc: "Écrire à la cigarette" },
+                4: { title: "Changer de main", desc: "Rompre les automatismes" },
+                5: { title: "Votre lieu sûr", desc: "Création d'un refuge mental" },
+                6: { title: "Rencontre avec l'adolescent", desc: "Réconciliation avec soi-même" },
+                7: { title: "Le chemin des ressources", desc: "Prise de conscience de vos capacités" },
+                8: { title: "Le carrefour des possibles", desc: "Vision des deux chemins" },
+                9: { title: "Futurisation positive", desc: "Voyage dans votre vie de non-fumeur" }
+            };
+
+            const ex = exercises[id];
+            const modal = document.getElementById('exercise-modal');
+            const content = document.getElementById('modal-content');
+            
+            content.innerHTML = `
+                <h2>Exercice ${id} : ${ex.title}</h2>
+                <p style="margin: 15px 0;">${ex.desc}</p>
+                <p style="color: #666;">Durée : ${audioDurations[id]}</p>
+                
+                <div class="audio-player">
+                    <audio id="exercise-audio-${id}" controls preload="metadata">
+                        <source src="${audioUrls[id]}" type="audio/mpeg">
+                    </audio>
+                </div>
+            `;
+
+            modal.style.display = 'block';
+
+            const audio = document.getElementById(`exercise-audio-${id}`);
+            audio.addEventListener('play', requestWakeLock);
+            audio.addEventListener('pause', releaseWakeLock);
+            audio.addEventListener('ended', releaseWakeLock);
         }
 
         function closeModal() {
-            // Relâcher le Wake Lock quand on ferme la modale
+            const modal = document.getElementById('exercise-modal');
+            modal.style.display = 'none';
             releaseWakeLock();
             
-            const modal = document.getElementById('exerciseModal');
-            if (modal) {
-                modal.remove();
+            // Stop tous les audios
+            document.querySelectorAll('audio').forEach(audio => {
+                audio.pause();
+                audio.currentTime = 0;
+            });
+        }
+
+        // Fermer modal en cliquant à l'extérieur
+        window.onclick = function(event) {
+            const modal = document.getElementById('exercise-modal');
+            if (event.target === modal) {
+                closeModal();
             }
         }
-
-        function markAsCompleted(id) {
-            if (!state.completedExercises.includes(id)) {
-                state.completedExercises.push(id);
-            }
-            closeModal();
-            render();
-        }
-
-        // Event listeners
-        function attachEventListeners() {
-            // Les event listeners sont attachés via onclick dans le HTML
-        }
-
-        // Initialisation
-        document.addEventListener('DOMContentLoaded', function() {
-            loadData(); // Charger les données sauvegardées
-            render();
-        });
-        
-        // Charger et rendre immédiatement
-        loadData();
-        render();
     </script>
 </body>
 </html>
